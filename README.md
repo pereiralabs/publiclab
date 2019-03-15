@@ -46,6 +46,12 @@
 		MapReduce_01:
 			-MapReduce example in Java
 
+	HBase:
+		-Scripts to install and load data into HBase
+
 	Projects:
 		Real Estate:
 			-Data pipeline on AWS
+
+		Probability Distribution:
+			-Notebook on probability study
