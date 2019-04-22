@@ -11,7 +11,7 @@
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
-# In[102]:
+# In[290]:
 
 
 import matplotlib
@@ -23,6 +23,8 @@ import pandas_profiling as pp
 from geopy import distance
 from geopy import geocoders 
 from geopy.geocoders import Nominatim
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import OneHotEncoder
 
 
 # In[2]:
@@ -333,3 +335,32 @@ mf.head()
 
 
 # #### Encoding categorical variables
+
+# In[287]:
+
+
+def encodeCategories(modelFeatures):
+    label_encoder = LabelEncoder()
+    onehot_encoder = OneHotEncoder()
+    
+    modelFeatures['DdpCategoryNum'] = label_encoder.fit_transform(modelFeatures['DdpCategory'])
+    modelFeatures['Category1stLevelNum'] = label_encoder.fit_transform(modelFeatures['Category1stLevel'])
+    
+    oheDdp = onehot_encoder.fit_transform(modelFeatures['DdpCategoryNum'])
+    
+    return modelFeatures
+
+
+# In[288]:
+
+
+# Applying changes
+mf = encodeCategories(mf)
+
+
+# In[289]:
+
+
+# Verifying changes
+mf.head()
+
