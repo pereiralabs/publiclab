@@ -55,3 +55,7 @@
 
 		Probability Distribution:
 			-Notebook on probability study
+
+	POC:
+		-Proof of Concepts:
+			-Modin vs Pandas
