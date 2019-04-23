@@ -11,7 +11,7 @@
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
-# In[1]:
+# In[68]:
 
 
 import matplotlib
@@ -36,6 +36,8 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import AdaBoostRegressor
 from sklearn.ensemble import GradientBoostingRegressor
+
+from joblib import dump, load
 
 
 # In[2]:
@@ -640,4 +642,14 @@ resultDf['PredictedTime'] = y_pred
 
 # Verifyng df
 resultDf.head(15)
+
+
+# ## Saving the model
+# 
+# Now we are going to save the model, in order to use it in a real pipeline.
+
+# In[69]:
+
+
+dump(bestModel, 'eddModel.joblib') 
 
