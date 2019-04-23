@@ -50,7 +50,7 @@ get_ipython().magic('matplotlib inline')
 
 
 dataFile = pd.read_csv('data/train.csv')
-df= pd.DataFrame(dataFile)
+df = pd.DataFrame(dataFile)
 
 
 # In[4]:
@@ -225,11 +225,12 @@ def defLatLong(modelFeatures):
 
 
 # ### Dropping Nulls
+# 
+# Used in model training.
 
 # In[21]:
 
 
-# Drop Nulls
 def dropNulls(modelFeatures):
     modelFeatures.dropna(subset=['CustomerLongitude','CustomerLatitude','PartnerLongitude','PartnerLatitude'], how='any', axis=0, inplace=True)    
     return modelFeatures
@@ -261,6 +262,18 @@ mf.shape
 
 # Verifying function
 mf.PartnerLongitude.isnull().sum()
+
+
+# ### Replacing Nulls
+# 
+# Used in final predicting.
+
+# In[114]:
+
+
+def replaceNulls(modelFeatures):
+    modelFeatures.fillna(value=0, axis=0, inplace=True)    
+    return modelFeatures
 
 
 # ### Calculating distance between partner and customer
@@ -652,4 +665,77 @@ resultDf.head(15)
 
 
 dump(bestModel, 'eddModel.joblib') 
+
+
+# ## Predicting Test Set
+# 
+# In this section we are going to use the model we just exported, in order to predict the values in the test set that was provided.
+# 
+# Then, the results are going to be exported into a CSV file.
+
+# In[115]:
+
+
+# Loading previously defined model
+prodModel = load('eddModel.joblib')
+
+
+# In[116]:
+
+
+# Loading test set
+testFile = pd.read_csv('data/test.csv')
+testDf = pd.DataFrame(testFile)
+outputDf = testDf.copy()
+
+
+# In[117]:
+
+
+# Verifying df
+testDf.head()
+
+
+# In[118]:
+
+
+# Applying feature engineering transformations
+testDf = dropUnused(testDf)
+testDf = replaceNulls(testDf)
+testDf = calcDist(testDf)
+testDf = prepareEncoding(testDf)
+testDf = getMonth(testDf)
+testDf = encodeCategories(testDf)
+testDf = dropUsed(testDf)
+col_names = ['CustomerLatitude', 'CustomerLongitude','PartnerLatitude','PartnerLongitude','DistanceKM','OrderMonth']
+scaler = StandardScaler().fit(testDf[col_names])
+testDf[col_names] = scaler.transform(testDf[col_names])
+
+
+# In[119]:
+
+
+# Predicting
+testPred = prodModel.predict(testDf)
+
+
+# In[120]:
+
+
+# Preparing output
+outputDf['DeliveryTime'] = testPred
+
+
+# In[121]:
+
+
+# Preparing output
+outputDf.head()
+
+
+# In[122]:
+
+
+# Exporting result
+outputDf.to_csv(path_or_buf='edd_results.csv', columns=['OrderLineID','DeliveryTime'], index=False)
 
