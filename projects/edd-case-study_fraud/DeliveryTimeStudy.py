@@ -11,7 +11,7 @@
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
-# In[59]:
+# In[1]:
 
 
 import matplotlib
@@ -414,14 +414,14 @@ mf.head()
 # - Random Forest
 # - AdaBoost
 
-# In[50]:
+# In[42]:
 
 
 # Creating the dataframe
 modelDf = df.copy()
 
 
-# In[51]:
+# In[43]:
 
 
 # Applying feature engineering transformations
@@ -434,14 +434,14 @@ modelDf = encodeCategories(modelDf)
 modelDf = dropUsed(modelDf)
 
 
-# In[52]:
+# In[44]:
 
 
 # Verifying changes
 modelDf.head()
 
 
-# In[56]:
+# In[45]:
 
 
 # Splitting X and Y
@@ -455,17 +455,17 @@ X[col_names] = scaler.transform(X[col_names])
 X.head()
 
 
-# In[57]:
+# In[46]:
 
 
 # Splitting train and validation
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 
-# In[82]:
+# In[47]:
 
 
-# Definig hyperparameters space
+# Definig hyperparameter space
 params ={
     'LinearRegression':{'fit_intercept':[True,False]},
     'DecisionTree':{'criterion':['mse','friedman_mse','mae'], 
@@ -481,7 +481,7 @@ params ={
 }
 
 
-# In[83]:
+# In[48]:
 
 
 # Defining models
@@ -493,7 +493,7 @@ models = {
 }
 
 
-# In[114]:
+# In[49]:
 
 
 # Defining GridSearch selection helper 
@@ -553,7 +553,7 @@ class EstimatorSelectionHelper:
         return df[columns]
 
 
-# In[84]:
+# In[50]:
 
 
 #Executing GridSearch
@@ -561,28 +561,28 @@ helper = EstimatorSelectionHelper(models, params)
 helper.fit(X_train, y_train, scoring='neg_mean_squared_error', n_jobs=3)
 
 
-# In[93]:
+# In[51]:
 
 
 #Verifying results
 helper.score_summary(sort_by='max_score')
 
 
-# In[97]:
+# In[52]:
 
 
 # Analyzing the best result
 res = helper.score_summary(sort_by='max_score')
 
 
-# In[101]:
+# In[53]:
 
 
 # Analyzing the best result: parameters
 res.iloc[0]['base_estimator']
 
 
-# In[102]:
+# In[54]:
 
 
 # Analyzing the best result: parameters
@@ -593,10 +593,10 @@ res.iloc[0]
 # 
 # We are now going to train the best model, based on our previous search.
 
-# In[104]:
+# In[60]:
 
 
-#Defining model# Analyzing the best result: parameters
+# Defining model
 bestModel = AdaBoostRegressor(
     DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
            max_leaf_nodes=None, min_impurity_decrease=0.0,
@@ -604,36 +604,37 @@ bestModel = AdaBoostRegressor(
            min_samples_split=2, min_weight_fraction_leaf=0.0,
            presort=False, random_state=None, splitter='best'),
     learning_rate = 0.1,
-    n_estimators = 75
+    loss = 'exponential',
+    n_estimators = 50
 )
 
 
-# In[105]:
+# In[61]:
 
 
-#Training model
+# Training model
 bestModel.fit(X_train,y_train)
 
 
-# In[106]:
+# In[62]:
 
 
-#Predicting
+# Predicting
 y_pred = bestModel.predict(X_test)
 
 
-# In[107]:
+# In[63]:
 
 
-#Verifying results
+# Verifying results
 resultDf = X_test.copy()
 resultDf['DeliveryTime'] = y_test
 resultDf['PredictedTime'] = y_pred
 
 
-# In[113]:
+# In[64]:
 
 
-#Verifyng df
+# Verifyng df
 resultDf.head(15)
 
