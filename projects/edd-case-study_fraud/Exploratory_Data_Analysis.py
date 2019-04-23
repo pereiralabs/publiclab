@@ -462,7 +462,7 @@ X.head()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 
-# In[70]:
+# In[82]:
 
 
 #Definig hyperparameters space
@@ -481,19 +481,19 @@ params ={
 }
 
 
-# In[72]:
+# In[83]:
 
 
 #Defining models
 models = {
     'LinearRegression':LinearRegression(),
-    'DecisionTree':RandomForestRegressor(),
-    'RandomForest':DecisionTreeRegressor(),
+    'DecisionTree':DecisionTreeRegressor(),
+    'RandomForest':RandomForestRegressor(),
     'AdaBoost':AdaBoostRegressor()
 }
 
 
-# In[74]:
+# In[78]:
 
 
 #Defining GridSearch selection helper
@@ -552,7 +552,7 @@ class EstimatorSelectionHelper:
         return df[columns]
 
 
-# In[71]:
+# In[81]:
 
 
 #Executing GridSearch
