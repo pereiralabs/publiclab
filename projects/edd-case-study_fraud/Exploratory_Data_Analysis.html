@@ -23351,11 +23351,11 @@ Fitting 3 folds for each of 81 candidates, totalling 243 fits
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Verifying results</span>
-<span class="n">helper</span><span class="o">.</span><span class="n">score_summary</span><span class="p">(</span><span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;min_score&#39;</span><span class="p">)</span>
+<span class="n">helper</span><span class="o">.</span><span class="n">score_summary</span><span class="p">(</span><span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;max_score&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -23382,7 +23382,7 @@ AdaBoost
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[86]:</div>
+<div class="prompt output_prompt">Out[93]:</div>
 
 
 
@@ -23421,87 +23421,12 @@ AdaBoost
   </thead>
   <tbody>
     <tr>
-      <th>12</th>
-      <td>RandomForest</td>
-      <td>-24.3172</td>
-      <td>-14.9001</td>
-      <td>-9.08234</td>
-      <td>6.72019</td>
-      <td>NaN</td>
-      <td>mae</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>47</th>
+      <th>75</th>
       <td>AdaBoost</td>
-      <td>-24.401</td>
-      <td>-13.8863</td>
-      <td>-7.81011</td>
-      <td>7.46498</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>exponential</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>RandomForest</td>
-      <td>-24.4293</td>
-      <td>-14.8497</td>
-      <td>-9.06583</td>
-      <td>6.82228</td>
-      <td>NaN</td>
-      <td>mae</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>RandomForest</td>
-      <td>-24.594</td>
-      <td>-14.6422</td>
-      <td>-8.93539</td>
-      <td>7.06221</td>
-      <td>NaN</td>
-      <td>mse</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>AdaBoost</td>
-      <td>-24.6159</td>
-      <td>-14.1273</td>
-      <td>-8.0714</td>
-      <td>7.4461</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>linear</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>AdaBoost</td>
-      <td>-24.6265</td>
-      <td>-14.2814</td>
-      <td>-8.43673</td>
-      <td>7.33566</td>
+      <td>-24.7256</td>
+      <td>-14.0179</td>
+      <td>-7.66099</td>
+      <td>7.61569</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -23526,6 +23451,36 @@ AdaBoost
       <td>NaN</td>
     </tr>
     <tr>
+      <th>71</th>
+      <td>AdaBoost</td>
+      <td>-25.3752</td>
+      <td>-14.2295</td>
+      <td>-7.78196</td>
+      <td>7.91352</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>AdaBoost</td>
+      <td>-24.401</td>
+      <td>-13.8863</td>
+      <td>-7.81011</td>
+      <td>7.46498</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
       <th>74</th>
       <td>AdaBoost</td>
       <td>-24.69</td>
@@ -23538,6 +23493,141 @@ AdaBoost
       <td>0.1</td>
       <td>exponential</td>
       <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>AdaBoost</td>
+      <td>-25.2585</td>
+      <td>-14.227</td>
+      <td>-7.87768</td>
+      <td>7.83009</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>AdaBoost</td>
+      <td>-24.7016</td>
+      <td>-18.2515</td>
+      <td>-7.99319</td>
+      <td>7.3335</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>AdaBoost</td>
+      <td>-24.6159</td>
+      <td>-14.1273</td>
+      <td>-8.0714</td>
+      <td>7.4461</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>AdaBoost</td>
+      <td>-24.9436</td>
+      <td>-14.4232</td>
+      <td>-8.07664</td>
+      <td>7.49175</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>AdaBoost</td>
+      <td>-24.7492</td>
+      <td>-14.168</td>
+      <td>-8.10003</td>
+      <td>7.50895</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>AdaBoost</td>
+      <td>-25.3676</td>
+      <td>-14.4921</td>
+      <td>-8.15075</td>
+      <td>7.72549</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>AdaBoost</td>
+      <td>-25.4412</td>
+      <td>-14.5641</td>
+      <td>-8.23623</td>
+      <td>7.72543</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>AdaBoost</td>
+      <td>-25.2846</td>
+      <td>-14.4154</td>
+      <td>-8.26421</td>
+      <td>7.70794</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>AdaBoost</td>
+      <td>-24.9671</td>
+      <td>-14.6678</td>
+      <td>-8.33825</td>
+      <td>7.34611</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>75</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -23571,42 +23661,12 @@ AdaBoost
       <td>NaN</td>
     </tr>
     <tr>
-      <th>44</th>
+      <th>48</th>
       <td>AdaBoost</td>
-      <td>-24.7016</td>
-      <td>-18.2515</td>
-      <td>-7.99319</td>
-      <td>7.3335</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>square</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>RandomForest</td>
-      <td>-24.7085</td>
-      <td>-14.7298</td>
-      <td>-9.01243</td>
-      <td>7.08102</td>
-      <td>NaN</td>
-      <td>mse</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>AdaBoost</td>
-      <td>-24.7256</td>
-      <td>-14.0179</td>
-      <td>-7.66099</td>
-      <td>7.61569</td>
+      <td>-24.6265</td>
+      <td>-14.2814</td>
+      <td>-8.43673</td>
+      <td>7.33566</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -23616,137 +23676,47 @@ AdaBoost
       <td>NaN</td>
     </tr>
     <tr>
-      <th>68</th>
+      <th>87</th>
       <td>AdaBoost</td>
-      <td>-24.7492</td>
-      <td>-14.168</td>
-      <td>-8.10003</td>
-      <td>7.50895</td>
+      <td>-290.323</td>
+      <td>-103.127</td>
+      <td>-8.44035</td>
+      <td>132.371</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>0.1</td>
-      <td>linear</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>AdaBoost</td>
-      <td>-24.7744</td>
-      <td>-14.5139</td>
-      <td>-8.83558</td>
-      <td>7.2691</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>exponential</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>AdaBoost</td>
-      <td>-24.846</td>
-      <td>-14.7654</td>
-      <td>-9.52437</td>
-      <td>7.12998</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
+      <td>10</td>
       <td>linear</td>
       <td>75</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>83</th>
+      <th>85</th>
       <td>AdaBoost</td>
-      <td>-24.9436</td>
-      <td>-14.4232</td>
-      <td>-8.07664</td>
-      <td>7.49175</td>
+      <td>-25.4274</td>
+      <td>-18.9969</td>
+      <td>-8.50338</td>
+      <td>7.4827</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>1</td>
       <td>exponential</td>
-      <td>50</td>
+      <td>100</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>78</th>
+      <th>84</th>
       <td>AdaBoost</td>
-      <td>-24.9671</td>
-      <td>-14.6678</td>
-      <td>-8.33825</td>
-      <td>7.34611</td>
+      <td>-25.2568</td>
+      <td>-18.8625</td>
+      <td>-8.52764</td>
+      <td>7.37617</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>1</td>
-      <td>linear</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>AdaBoost</td>
-      <td>-24.9904</td>
-      <td>-14.7865</td>
-      <td>-9.04809</td>
-      <td>7.23397</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
       <td>exponential</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>AdaBoost</td>
-      <td>-25.0119</td>
-      <td>-18.7177</td>
-      <td>-10.2262</td>
-      <td>6.23298</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>linear</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>AdaBoost</td>
-      <td>-25.0304</td>
-      <td>-14.7868</td>
-      <td>-8.80619</td>
-      <td>7.27717</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>square</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>AdaBoost</td>
-      <td>-25.0387</td>
-      <td>-18.394</td>
-      <td>-9.84582</td>
-      <td>6.34683</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>square</td>
       <td>75</td>
       <td>NaN</td>
     </tr>
@@ -23766,333 +23736,33 @@ AdaBoost
       <td>NaN</td>
     </tr>
     <tr>
-      <th>79</th>
+      <th>82</th>
       <td>AdaBoost</td>
-      <td>-25.0919</td>
-      <td>-22.9994</td>
-      <td>-20.7811</td>
-      <td>1.76212</td>
+      <td>-25.0304</td>
+      <td>-14.7868</td>
+      <td>-8.80619</td>
+      <td>7.27717</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>1</td>
-      <td>linear</td>
+      <td>square</td>
       <td>100</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>43</th>
+      <th>20</th>
       <td>AdaBoost</td>
-      <td>-25.1447</td>
-      <td>-19.2513</td>
-      <td>-10.6985</td>
-      <td>6.1902</td>
+      <td>-24.7744</td>
+      <td>-14.5139</td>
+      <td>-8.83558</td>
+      <td>7.2691</td>
       <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>0.1</td>
-      <td>linear</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>AdaBoost</td>
-      <td>-25.1514</td>
-      <td>-18.675</td>
-      <td>-10.544</td>
-      <td>6.07712</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>linear</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>84</th>
-      <td>AdaBoost</td>
-      <td>-25.2568</td>
-      <td>-18.8625</td>
-      <td>-8.52764</td>
-      <td>7.37617</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>exponential</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>AdaBoost</td>
-      <td>-25.2585</td>
-      <td>-14.227</td>
-      <td>-7.87768</td>
-      <td>7.83009</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>linear</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>81</th>
-      <td>AdaBoost</td>
-      <td>-25.2693</td>
-      <td>-18.5345</td>
-      <td>-9.711</td>
-      <td>6.52111</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>square</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>AdaBoost</td>
-      <td>-25.2846</td>
-      <td>-14.4154</td>
-      <td>-8.26421</td>
-      <td>7.70794</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.1</td>
-      <td>linear</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>AdaBoost</td>
-      <td>-83.9591</td>
-      <td>-54.9567</td>
-      <td>-35.0054</td>
-      <td>20.985</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>square</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>90</th>
-      <td>AdaBoost</td>
-      <td>-85.4881</td>
-      <td>-49.8014</td>
-      <td>-30.6172</td>
-      <td>25.258</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>square</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>AdaBoost</td>
-      <td>-112.76</td>
-      <td>-83.1204</td>
-      <td>-59.1754</td>
-      <td>22.2431</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
       <td>exponential</td>
       <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>AdaBoost</td>
-      <td>-113.15</td>
-      <td>-58.2631</td>
-      <td>-28.3408</td>
-      <td>38.8634</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>square</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>32</th>
-      <td>AdaBoost</td>
-      <td>-122.205</td>
-      <td>-49.0281</td>
-      <td>-10.4751</td>
-      <td>51.7688</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>AdaBoost</td>
-      <td>-145.098</td>
-      <td>-119.691</td>
-      <td>-94.3856</td>
-      <td>20.7033</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>exponential</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>AdaBoost</td>
-      <td>-145.698</td>
-      <td>-136.289</td>
-      <td>-126.527</td>
-      <td>7.83029</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>exponential</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>AdaBoost</td>
-      <td>-160.925</td>
-      <td>-78.2979</td>
-      <td>-35.6139</td>
-      <td>58.4372</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>square</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>60</th>
-      <td>AdaBoost</td>
-      <td>-173.261</td>
-      <td>-66.2923</td>
-      <td>-10.4489</td>
-      <td>75.6626</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>AdaBoost</td>
-      <td>-176.616</td>
-      <td>-80.2067</td>
-      <td>-30.7053</td>
-      <td>68.1799</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>square</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>AdaBoost</td>
-      <td>-188.289</td>
-      <td>-79.4641</td>
-      <td>-19.3983</td>
-      <td>77.089</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>square</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>AdaBoost</td>
-      <td>-218.228</td>
-      <td>-149.206</td>
-      <td>-20.4419</td>
-      <td>91.1291</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>exponential</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>87</th>
-      <td>AdaBoost</td>
-      <td>-290.323</td>
-      <td>-103.127</td>
-      <td>-8.44035</td>
-      <td>132.371</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>AdaBoost</td>
-      <td>-411.048</td>
-      <td>-144.309</td>
-      <td>-10.5398</td>
-      <td>188.613</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>100</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -24111,94 +23781,109 @@ AdaBoost
       <td>NaN</td>
     </tr>
     <tr>
-      <th>34</th>
-      <td>AdaBoost</td>
-      <td>-608.494</td>
-      <td>-212.038</td>
-      <td>-11.5924</td>
-      <td>280.343</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <th>9</th>
+      <td>RandomForest</td>
+      <td>-24.594</td>
+      <td>-14.6422</td>
+      <td>-8.93539</td>
+      <td>7.06221</td>
+      <td>NaN</td>
+      <td>mse</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>100</td>
       <td>NaN</td>
-    </tr>
-    <tr>
-      <th>88</th>
-      <td>AdaBoost</td>
-      <td>-632.235</td>
-      <td>-219.139</td>
-      <td>-10.49</td>
-      <td>292.108</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>AdaBoost</td>
-      <td>-717.925</td>
-      <td>-332.144</td>
-      <td>-27.8535</td>
-      <td>287.553</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>exponential</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>AdaBoost</td>
-      <td>-872.526</td>
-      <td>-311.395</td>
-      <td>-28.3597</td>
-      <td>396.785</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>square</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>AdaBoost</td>
-      <td>-964.851</td>
-      <td>-342.272</td>
-      <td>-28.6652</td>
-      <td>440.234</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>square</td>
-      <td>100</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>92</th>
-      <td>AdaBoost</td>
-      <td>-1050.93</td>
-      <td>-482.348</td>
-      <td>-116.464</td>
-      <td>407.53</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>exponential</td>
       <td>50</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>RandomForest</td>
+      <td>-24.7085</td>
+      <td>-14.7298</td>
+      <td>-9.01243</td>
+      <td>7.08102</td>
+      <td>NaN</td>
+      <td>mse</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>AdaBoost</td>
+      <td>-24.9904</td>
+      <td>-14.7865</td>
+      <td>-9.04809</td>
+      <td>7.23397</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>RandomForest</td>
+      <td>-24.4293</td>
+      <td>-14.8497</td>
+      <td>-9.06583</td>
+      <td>6.82228</td>
+      <td>NaN</td>
+      <td>mae</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>RandomForest</td>
+      <td>-24.3172</td>
+      <td>-14.9001</td>
+      <td>-9.08234</td>
+      <td>6.72019</td>
+      <td>NaN</td>
+      <td>mae</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>AdaBoost</td>
+      <td>-25.9759</td>
+      <td>-15.4079</td>
+      <td>-9.33378</td>
+      <td>7.50052</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
       <th>91</th>
@@ -24211,6 +23896,21 @@ AdaBoost
       <td>NaN</td>
       <td>NaN</td>
       <td>10</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>AdaBoost</td>
+      <td>-46.6181</td>
+      <td>-32.2187</td>
+      <td>-24.6417</td>
+      <td>10.1866</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
       <td>square</td>
       <td>100</td>
       <td>NaN</td>
@@ -24231,6 +23931,321 @@ AdaBoost
       <td>NaN</td>
     </tr>
     <tr>
+      <th>57</th>
+      <td>AdaBoost</td>
+      <td>-46.8882</td>
+      <td>-35.6015</td>
+      <td>-26.064</td>
+      <td>8.59093</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>AdaBoost</td>
+      <td>-44.7486</td>
+      <td>-34.0155</td>
+      <td>-27.1187</td>
+      <td>7.69159</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>AdaBoost</td>
+      <td>-717.925</td>
+      <td>-332.144</td>
+      <td>-27.8535</td>
+      <td>287.553</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>AdaBoost</td>
+      <td>-113.15</td>
+      <td>-58.2631</td>
+      <td>-28.3408</td>
+      <td>38.8634</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>AdaBoost</td>
+      <td>-872.526</td>
+      <td>-311.395</td>
+      <td>-28.3597</td>
+      <td>396.785</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>AdaBoost</td>
+      <td>-72.101</td>
+      <td>-45.5397</td>
+      <td>-28.5012</td>
+      <td>19.0306</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>AdaBoost</td>
+      <td>-964.851</td>
+      <td>-342.272</td>
+      <td>-28.6652</td>
+      <td>440.234</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>AdaBoost</td>
+      <td>-60.8635</td>
+      <td>-44.8754</td>
+      <td>-29.2747</td>
+      <td>12.899</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>AdaBoost</td>
+      <td>-35.9029</td>
+      <td>-32.5865</td>
+      <td>-29.3283</td>
+      <td>2.68438</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>AdaBoost</td>
+      <td>-65.0839</td>
+      <td>-45.5971</td>
+      <td>-30.2345</td>
+      <td>14.523</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>AdaBoost</td>
+      <td>-85.4881</td>
+      <td>-49.8014</td>
+      <td>-30.6172</td>
+      <td>25.258</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>AdaBoost</td>
+      <td>-176.616</td>
+      <td>-80.2067</td>
+      <td>-30.7053</td>
+      <td>68.1799</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>DecisionTree</td>
+      <td>-57.4862</td>
+      <td>-43.1331</td>
+      <td>-31.2131</td>
+      <td>10.8631</td>
+      <td>NaN</td>
+      <td>mae</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>random</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>AdaBoost</td>
+      <td>-59.9632</td>
+      <td>-44.1148</td>
+      <td>-33.5711</td>
+      <td>11.4088</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>AdaBoost</td>
+      <td>-83.9591</td>
+      <td>-54.9567</td>
+      <td>-35.0054</td>
+      <td>20.985</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>AdaBoost</td>
+      <td>-160.925</td>
+      <td>-78.2979</td>
+      <td>-35.6139</td>
+      <td>58.4372</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>AdaBoost</td>
+      <td>-43.7864</td>
+      <td>-38.7737</td>
+      <td>-36.1107</td>
+      <td>3.54684</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>AdaBoost</td>
+      <td>-112.76</td>
+      <td>-83.1204</td>
+      <td>-59.1754</td>
+      <td>22.2431</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>AdaBoost</td>
+      <td>-145.098</td>
+      <td>-119.691</td>
+      <td>-94.3856</td>
+      <td>20.7033</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>AdaBoost</td>
+      <td>-1050.93</td>
+      <td>-482.348</td>
+      <td>-116.464</td>
+      <td>407.53</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>AdaBoost</td>
+      <td>-145.698</td>
+      <td>-136.289</td>
+      <td>-126.527</td>
+      <td>7.83029</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
       <th>65</th>
       <td>AdaBoost</td>
       <td>-2635.47</td>
@@ -24243,36 +24258,6 @@ AdaBoost
       <td>10</td>
       <td>exponential</td>
       <td>50</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>AdaBoost</td>
-      <td>-3158.1</td>
-      <td>-1288.79</td>
-      <td>-238.165</td>
-      <td>1325.19</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>exponential</td>
-      <td>75</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>33</th>
-      <td>AdaBoost</td>
-      <td>-3484.33</td>
-      <td>-1459.82</td>
-      <td>-18.6078</td>
-      <td>1473.76</td>
-      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>10</td>
-      <td>linear</td>
-      <td>75</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -24303,6 +24288,21 @@ AdaBoost
       <td>10</td>
       <td>exponential</td>
       <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>AdaBoost</td>
+      <td>-3158.1</td>
+      <td>-1288.79</td>
+      <td>-238.165</td>
+      <td>1325.19</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>75</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -24338,6 +24338,865 @@ AdaBoost
   </tbody>
 </table>
 <p>95 rows × 12 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">score_summary</span><span class="p">(</span><span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;max_score&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LinearRegression
+DecisionTree
+RandomForest
+AdaBoost
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;base_estimator&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[101]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DecisionTreeRegressor(criterion=&#39;mse&#39;, max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=None, splitter=&#39;best&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[102]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>estimator                                                  AdaBoost
+min_score                                                  -24.7256
+mean_score                                                 -14.0179
+max_score                                                  -7.66099
+std_score                                                   7.61569
+base_estimator    DecisionTreeRegressor(criterion=&#39;mse&#39;, max_dep...
+criterion                                                       NaN
+fit_intercept                                                   NaN
+learning_rate                                                   0.1
+loss                                                    exponential
+n_estimators                                                     75
+splitter                                                        NaN
+Name: 75, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Training-the-best-model">Training the best model<a class="anchor-link" href="#Training-the-best-model">&#182;</a></h3><p>We are now going to train the best model, based on our previous search.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Defining model</span>
+<span class="n">bestModel</span> <span class="o">=</span> <span class="n">AdaBoostRegressor</span><span class="p">(</span>
+    <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+           <span class="n">min_impurity_split</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+           <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+           <span class="n">presort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">),</span>
+    <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">75</span>
+<span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Training model</span>
+<span class="n">bestModel</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[105]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>AdaBoostRegressor(base_estimator=DecisionTreeRegressor(criterion=&#39;mse&#39;, max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=None, splitter=&#39;best&#39;),
+         learning_rate=0.1, loss=&#39;linear&#39;, n_estimators=75,
+         random_state=None)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Predicting</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">bestModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Verifying results</span>
+<span class="n">resultDf</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">resultDf</span><span class="p">[</span><span class="s1">&#39;DeliveryTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_test</span>
+<span class="n">resultDf</span><span class="p">[</span><span class="s1">&#39;PredictedTime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_pred</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Verifyng df</span>
+<span class="n">resultDf</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[110]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerLatitude</th>
+      <th>CustomerLongitude</th>
+      <th>PartnerLatitude</th>
+      <th>PartnerLongitude</th>
+      <th>DeliveryType</th>
+      <th>OrderMonth</th>
+      <th>DistanceKM</th>
+      <th>CategoryClothing</th>
+      <th>CategoryFootwear</th>
+      <th>CategoryOthers</th>
+      <th>LevelClothing</th>
+      <th>LevelShoes</th>
+      <th>LevelBags</th>
+      <th>LevelOthers</th>
+      <th>DeliveryTime</th>
+      <th>PredictedTime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7544</th>
+      <td>-0.337199</td>
+      <td>1.199095</td>
+      <td>-0.016709</td>
+      <td>0.133441</td>
+      <td>1</td>
+      <td>11</td>
+      <td>0.733126</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.75</td>
+      <td>4.457300</td>
+    </tr>
+    <tr>
+      <th>10790</th>
+      <td>-2.972084</td>
+      <td>1.475338</td>
+      <td>0.813847</td>
+      <td>-0.176611</td>
+      <td>1</td>
+      <td>03</td>
+      <td>2.307213</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.33</td>
+      <td>5.677643</td>
+    </tr>
+    <tr>
+      <th>9472</th>
+      <td>0.323138</td>
+      <td>-1.082928</td>
+      <td>-1.704932</td>
+      <td>-2.788059</td>
+      <td>0</td>
+      <td>07</td>
+      <td>-1.030247</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.25</td>
+      <td>5.628904</td>
+    </tr>
+    <tr>
+      <th>2694</th>
+      <td>0.953621</td>
+      <td>0.221602</td>
+      <td>0.008186</td>
+      <td>-0.042177</td>
+      <td>1</td>
+      <td>10</td>
+      <td>-0.793616</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.79</td>
+      <td>5.572488</td>
+    </tr>
+    <tr>
+      <th>6218</th>
+      <td>-0.445965</td>
+      <td>1.114984</td>
+      <td>-0.387291</td>
+      <td>0.377383</td>
+      <td>1</td>
+      <td>07</td>
+      <td>0.570410</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.62</td>
+      <td>4.501719</td>
+    </tr>
+    <tr>
+      <th>11223</th>
+      <td>-0.324706</td>
+      <td>0.384132</td>
+      <td>-0.220114</td>
+      <td>0.198668</td>
+      <td>1</td>
+      <td>11</td>
+      <td>-0.497767</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.79</td>
+      <td>4.739892</td>
+    </tr>
+    <tr>
+      <th>12199</th>
+      <td>-0.334733</td>
+      <td>0.426744</td>
+      <td>-0.348366</td>
+      <td>-2.514552</td>
+      <td>1</td>
+      <td>03</td>
+      <td>1.034791</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.92</td>
+      <td>5.116997</td>
+    </tr>
+    <tr>
+      <th>1616</th>
+      <td>0.775426</td>
+      <td>-0.219211</td>
+      <td>-0.643837</td>
+      <td>0.200458</td>
+      <td>0</td>
+      <td>03</td>
+      <td>-0.982939</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>6.58</td>
+      <td>7.206549</td>
+    </tr>
+    <tr>
+      <th>7214</th>
+      <td>-2.538142</td>
+      <td>1.569476</td>
+      <td>0.918379</td>
+      <td>0.466420</td>
+      <td>1</td>
+      <td>04</td>
+      <td>1.944410</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.08</td>
+      <td>5.290000</td>
+    </tr>
+    <tr>
+      <th>1606</th>
+      <td>-0.449232</td>
+      <td>1.115803</td>
+      <td>-0.220114</td>
+      <td>0.198668</td>
+      <td>1</td>
+      <td>02</td>
+      <td>0.655026</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.29</td>
+      <td>4.100956</td>
+    </tr>
+    <tr>
+      <th>2064</th>
+      <td>-1.331896</td>
+      <td>0.995171</td>
+      <td>0.918379</td>
+      <td>0.466420</td>
+      <td>1</td>
+      <td>01</td>
+      <td>0.679166</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.04</td>
+      <td>4.685000</td>
+    </tr>
+    <tr>
+      <th>7386</th>
+      <td>-0.075337</td>
+      <td>1.200994</td>
+      <td>-0.332302</td>
+      <td>0.254777</td>
+      <td>1</td>
+      <td>10</td>
+      <td>0.607995</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.96</td>
+      <td>5.661286</td>
+    </tr>
+    <tr>
+      <th>6468</th>
+      <td>-0.348830</td>
+      <td>0.327964</td>
+      <td>0.171867</td>
+      <td>0.151954</td>
+      <td>1</td>
+      <td>12</td>
+      <td>-0.515656</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.54</td>
+      <td>4.710830</td>
+    </tr>
+    <tr>
+      <th>2499</th>
+      <td>-0.454374</td>
+      <td>1.108404</td>
+      <td>0.212503</td>
+      <td>0.092127</td>
+      <td>1</td>
+      <td>09</td>
+      <td>0.660748</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>14.17</td>
+      <td>4.820405</td>
+    </tr>
+    <tr>
+      <th>1019</th>
+      <td>0.775426</td>
+      <td>-0.219211</td>
+      <td>0.915703</td>
+      <td>-0.189161</td>
+      <td>1</td>
+      <td>12</td>
+      <td>-1.358273</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.67</td>
+      <td>3.106107</td>
+    </tr>
+    <tr>
+      <th>4519</th>
+      <td>0.859339</td>
+      <td>0.359448</td>
+      <td>0.915703</td>
+      <td>-0.189161</td>
+      <td>1</td>
+      <td>02</td>
+      <td>-0.664239</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>24.04</td>
+      <td>5.932491</td>
+    </tr>
+    <tr>
+      <th>4441</th>
+      <td>-0.075337</td>
+      <td>1.200994</td>
+      <td>-7.411523</td>
+      <td>-1.656424</td>
+      <td>1</td>
+      <td>09</td>
+      <td>2.680505</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>11.67</td>
+      <td>8.520000</td>
+    </tr>
+    <tr>
+      <th>9851</th>
+      <td>0.334757</td>
+      <td>-1.079505</td>
+      <td>0.998084</td>
+      <td>-0.229327</td>
+      <td>1</td>
+      <td>01</td>
+      <td>-0.188629</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.46</td>
+      <td>3.200000</td>
+    </tr>
+    <tr>
+      <th>6374</th>
+      <td>-0.445965</td>
+      <td>1.114984</td>
+      <td>-0.503066</td>
+      <td>0.317089</td>
+      <td>1</td>
+      <td>02</td>
+      <td>0.613231</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.08</td>
+      <td>4.751492</td>
+    </tr>
+    <tr>
+      <th>5273</th>
+      <td>0.110424</td>
+      <td>1.414468</td>
+      <td>0.101858</td>
+      <td>0.131126</td>
+      <td>1</td>
+      <td>05</td>
+      <td>0.753039</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.88</td>
+      <td>4.823333</td>
+    </tr>
+    <tr>
+      <th>1776</th>
+      <td>-0.332912</td>
+      <td>1.202000</td>
+      <td>-0.365121</td>
+      <td>0.253335</td>
+      <td>1</td>
+      <td>01</td>
+      <td>0.715717</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.71</td>
+      <td>4.557229</td>
+    </tr>
+    <tr>
+      <th>3912</th>
+      <td>-0.332912</td>
+      <td>1.202000</td>
+      <td>-0.699869</td>
+      <td>0.280351</td>
+      <td>1</td>
+      <td>10</td>
+      <td>0.738312</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.46</td>
+      <td>6.139706</td>
+    </tr>
+    <tr>
+      <th>5205</th>
+      <td>0.288562</td>
+      <td>1.141824</td>
+      <td>-0.220114</td>
+      <td>0.198668</td>
+      <td>1</td>
+      <td>11</td>
+      <td>0.404197</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>16.71</td>
+      <td>8.354737</td>
+    </tr>
+    <tr>
+      <th>3576</th>
+      <td>-2.972084</td>
+      <td>1.475338</td>
+      <td>-0.091290</td>
+      <td>0.177755</td>
+      <td>1</td>
+      <td>11</td>
+      <td>2.131237</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.25</td>
+      <td>5.677643</td>
+    </tr>
+    <tr>
+      <th>9708</th>
+      <td>-2.806504</td>
+      <td>1.548260</td>
+      <td>0.918379</td>
+      <td>0.466420</td>
+      <td>1</td>
+      <td>03</td>
+      <td>2.028794</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.00</td>
+      <td>6.050196</td>
+    </tr>
+    <tr>
+      <th>11761</th>
+      <td>0.325582</td>
+      <td>-1.080140</td>
+      <td>0.685481</td>
+      <td>0.079478</td>
+      <td>1</td>
+      <td>09</td>
+      <td>-0.020703</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.75</td>
+      <td>3.673926</td>
+    </tr>
+    <tr>
+      <th>6131</th>
+      <td>0.976305</td>
+      <td>0.295401</td>
+      <td>0.199426</td>
+      <td>0.203653</td>
+      <td>1</td>
+      <td>06</td>
+      <td>-0.837444</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.08</td>
+      <td>6.153929</td>
+    </tr>
+    <tr>
+      <th>4999</th>
+      <td>-0.153305</td>
+      <td>0.342660</td>
+      <td>-0.643837</td>
+      <td>0.200458</td>
+      <td>1</td>
+      <td>06</td>
+      <td>-0.632921</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5.00</td>
+      <td>5.871220</td>
+    </tr>
+    <tr>
+      <th>9171</th>
+      <td>0.969931</td>
+      <td>0.254311</td>
+      <td>-0.303132</td>
+      <td>0.336488</td>
+      <td>1</td>
+      <td>11</td>
+      <td>-0.854316</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.92</td>
+      <td>6.880000</td>
+    </tr>
+    <tr>
+      <th>1970</th>
+      <td>0.109942</td>
+      <td>1.413320</td>
+      <td>1.297216</td>
+      <td>0.201435</td>
+      <td>1</td>
+      <td>04</td>
+      <td>0.527663</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.08</td>
+      <td>4.957143</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 

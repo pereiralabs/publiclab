@@ -560,9 +560,76 @@ helper = EstimatorSelectionHelper(models, params)
 helper.fit(X_train, y_train, scoring='neg_mean_squared_error', n_jobs=3)
 
 
-# In[86]:
+# In[93]:
 
 
 #Verifying results
-helper.score_summary(sort_by='min_score')
+helper.score_summary(sort_by='max_score')
+
+
+# In[97]:
+
+
+res = helper.score_summary(sort_by='max_score')
+
+
+# In[101]:
+
+
+res.iloc[0]['base_estimator']
+
+
+# In[102]:
+
+
+res.iloc[0]
+
+
+# ### Training the best model
+# 
+# We are now going to train the best model, based on our previous search.
+
+# In[104]:
+
+
+#Defining model
+bestModel = AdaBoostRegressor(
+    DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
+           max_leaf_nodes=None, min_impurity_decrease=0.0,
+           min_impurity_split=None, min_samples_leaf=1,
+           min_samples_split=2, min_weight_fraction_leaf=0.0,
+           presort=False, random_state=None, splitter='best'),
+    learning_rate = 0.1,
+    n_estimators = 75
+)
+
+
+# In[105]:
+
+
+#Training model
+bestModel.fit(X_train,y_train)
+
+
+# In[106]:
+
+
+#Predicting
+y_pred = bestModel.predict(X_test)
+
+
+# In[107]:
+
+
+#Verifying results
+resultDf = X_test.copy()
+resultDf['DeliveryTime'] = y_test
+resultDf['PredictedTime'] = y_pred
+
+
+# In[110]:
+
+
+#Verifyng df
+resultDf.head(30)
 
