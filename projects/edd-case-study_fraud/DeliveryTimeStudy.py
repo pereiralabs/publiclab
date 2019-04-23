@@ -673,14 +673,14 @@ dump(bestModel, 'eddModel.joblib')
 # 
 # Then, the results are going to be exported into a CSV file.
 
-# In[115]:
+# In[123]:
 
 
 # Loading previously defined model
 prodModel = load('eddModel.joblib')
 
 
-# In[116]:
+# In[124]:
 
 
 # Loading test set
@@ -689,14 +689,7 @@ testDf = pd.DataFrame(testFile)
 outputDf = testDf.copy()
 
 
-# In[117]:
-
-
-# Verifying df
-testDf.head()
-
-
-# In[118]:
+# In[125]:
 
 
 # Applying feature engineering transformations
@@ -712,28 +705,21 @@ scaler = StandardScaler().fit(testDf[col_names])
 testDf[col_names] = scaler.transform(testDf[col_names])
 
 
-# In[119]:
+# In[126]:
 
 
 # Predicting
 testPred = prodModel.predict(testDf)
 
 
-# In[120]:
+# In[127]:
 
 
 # Preparing output
 outputDf['DeliveryTime'] = testPred
 
 
-# In[121]:
-
-
-# Preparing output
-outputDf.head()
-
-
-# In[122]:
+# In[128]:
 
 
 # Exporting result

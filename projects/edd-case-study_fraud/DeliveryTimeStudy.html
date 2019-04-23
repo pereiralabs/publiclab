@@ -25035,7 +25035,7 @@ Name: 112, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loading previously defined model</span>
@@ -25049,7 +25049,7 @@ Name: 112, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loading test set</span>
@@ -25065,192 +25065,7 @@ Name: 112, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[117]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Verifying df</span>
-<span class="n">testDf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[117]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>OrderLineID</th>
-      <th>OrderCodeID</th>
-      <th>PartnerID</th>
-      <th>CustomerCountry</th>
-      <th>CustomerCity</th>
-      <th>CustomerLatitude</th>
-      <th>CustomerLongitude</th>
-      <th>PartnerLatitude</th>
-      <th>PartnerLongitude</th>
-      <th>PartnerCountry</th>
-      <th>PartnerCity</th>
-      <th>DeliveryType</th>
-      <th>IsHazmat</th>
-      <th>TariffCode</th>
-      <th>DdpCategory</th>
-      <th>DdpSubcategory</th>
-      <th>Category1stLevel</th>
-      <th>Category2ndLevel</th>
-      <th>OrderDate</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>7468</td>
-      <td>VTK5200772</td>
-      <td>9462</td>
-      <td>Spain</td>
-      <td>Barcelona</td>
-      <td>41.385064</td>
-      <td>2.173404</td>
-      <td>52.229676</td>
-      <td>21.012229</td>
-      <td>Poland</td>
-      <td>warsaw</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>4202.31.60</td>
-      <td>Bags &amp; similar</td>
-      <td>Articles of a kind normally carried in the poc...</td>
-      <td>Accessories</td>
-      <td>Wallets &amp; Cardholders</td>
-      <td>2016-03-06 18:38:35</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1759</td>
-      <td>IIL7642404</td>
-      <td>9647</td>
-      <td>United Kingdom</td>
-      <td>London</td>
-      <td>51.508515</td>
-      <td>-0.125487</td>
-      <td>55.676097</td>
-      <td>12.568337</td>
-      <td>Denmark</td>
-      <td>Copenhagen</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6403.59.90</td>
-      <td>Footwear with outer soles of rubber  plastics ...</td>
-      <td>Other footwear with outer soles of leather</td>
-      <td>Shoes</td>
-      <td>Mules</td>
-      <td>2016-10-26 11:38:49</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4623</td>
-      <td>TZF10915725</td>
-      <td>9728</td>
-      <td>Romania</td>
-      <td>Bucharest</td>
-      <td>44.432500</td>
-      <td>26.103889</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Italy</td>
-      <td>ALBANO SANT ALESSANDRO</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6403.59.30</td>
-      <td>Footwear with outer soles of rubber  plastics ...</td>
-      <td>Other footwear with outer soles of leather</td>
-      <td>Shoes</td>
-      <td>Sandals</td>
-      <td>2017-05-09 18:27:47</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4788</td>
-      <td>BRC16063124</td>
-      <td>10952</td>
-      <td>United States</td>
-      <td>dayton</td>
-      <td>39.758948</td>
-      <td>-84.191607</td>
-      <td>51.652766</td>
-      <td>-0.028045</td>
-      <td>United Kingdom</td>
-      <td>Brimsdown</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6403.99.90</td>
-      <td>Footwear with outer soles of rubber  plastics ...</td>
-      <td>Other footwear</td>
-      <td>Shoes</td>
-      <td>Trainers</td>
-      <td>2018-01-01 01:22:06</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3369</td>
-      <td>BRH13842070</td>
-      <td>10361</td>
-      <td>Australia</td>
-      <td>Adelaide</td>
-      <td>-34.928621</td>
-      <td>138.599959</td>
-      <td>51.652766</td>
-      <td>-0.028045</td>
-      <td>United Kingdom</td>
-      <td>Brimsdown</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6110.20.20</td>
-      <td>Clothing &amp; Accessories</td>
-      <td>Jerseys  pullovers  cardigans  waistcoats and ...</td>
-      <td>Clothing</td>
-      <td>Tops</td>
-      <td>2017-10-14 12:41:11</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Applying feature engineering transformations</span>
@@ -25294,7 +25109,7 @@ Name: 112, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Predicting</span>
@@ -25308,7 +25123,7 @@ Name: 112, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preparing output</span>
@@ -25322,198 +25137,7 @@ Name: 112, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[121]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Preparing output</span>
-<span class="n">outputDf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[121]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style>
-    .dataframe thead tr:only-child th {
-        text-align: right;
-    }
-
-    .dataframe thead th {
-        text-align: left;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>OrderLineID</th>
-      <th>OrderCodeID</th>
-      <th>PartnerID</th>
-      <th>CustomerCountry</th>
-      <th>CustomerCity</th>
-      <th>CustomerLatitude</th>
-      <th>CustomerLongitude</th>
-      <th>PartnerLatitude</th>
-      <th>PartnerLongitude</th>
-      <th>PartnerCountry</th>
-      <th>PartnerCity</th>
-      <th>DeliveryType</th>
-      <th>IsHazmat</th>
-      <th>TariffCode</th>
-      <th>DdpCategory</th>
-      <th>DdpSubcategory</th>
-      <th>Category1stLevel</th>
-      <th>Category2ndLevel</th>
-      <th>OrderDate</th>
-      <th>DeliveryTime</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>7468</td>
-      <td>VTK5200772</td>
-      <td>9462</td>
-      <td>Spain</td>
-      <td>Barcelona</td>
-      <td>41.385064</td>
-      <td>2.173404</td>
-      <td>52.229676</td>
-      <td>21.012229</td>
-      <td>Poland</td>
-      <td>warsaw</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>4202.31.60</td>
-      <td>Bags &amp; similar</td>
-      <td>Articles of a kind normally carried in the poc...</td>
-      <td>Accessories</td>
-      <td>Wallets &amp; Cardholders</td>
-      <td>2016-03-06 18:38:35</td>
-      <td>4.072223</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1759</td>
-      <td>IIL7642404</td>
-      <td>9647</td>
-      <td>United Kingdom</td>
-      <td>London</td>
-      <td>51.508515</td>
-      <td>-0.125487</td>
-      <td>55.676097</td>
-      <td>12.568337</td>
-      <td>Denmark</td>
-      <td>Copenhagen</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6403.59.90</td>
-      <td>Footwear with outer soles of rubber  plastics ...</td>
-      <td>Other footwear with outer soles of leather</td>
-      <td>Shoes</td>
-      <td>Mules</td>
-      <td>2016-10-26 11:38:49</td>
-      <td>3.806586</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4623</td>
-      <td>TZF10915725</td>
-      <td>9728</td>
-      <td>Romania</td>
-      <td>Bucharest</td>
-      <td>44.432500</td>
-      <td>26.103889</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Italy</td>
-      <td>ALBANO SANT ALESSANDRO</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6403.59.30</td>
-      <td>Footwear with outer soles of rubber  plastics ...</td>
-      <td>Other footwear with outer soles of leather</td>
-      <td>Shoes</td>
-      <td>Sandals</td>
-      <td>2017-05-09 18:27:47</td>
-      <td>9.001622</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4788</td>
-      <td>BRC16063124</td>
-      <td>10952</td>
-      <td>United States</td>
-      <td>dayton</td>
-      <td>39.758948</td>
-      <td>-84.191607</td>
-      <td>51.652766</td>
-      <td>-0.028045</td>
-      <td>United Kingdom</td>
-      <td>Brimsdown</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6403.99.90</td>
-      <td>Footwear with outer soles of rubber  plastics ...</td>
-      <td>Other footwear</td>
-      <td>Shoes</td>
-      <td>Trainers</td>
-      <td>2018-01-01 01:22:06</td>
-      <td>3.782644</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3369</td>
-      <td>BRH13842070</td>
-      <td>10361</td>
-      <td>Australia</td>
-      <td>Adelaide</td>
-      <td>-34.928621</td>
-      <td>138.599959</td>
-      <td>51.652766</td>
-      <td>-0.028045</td>
-      <td>United Kingdom</td>
-      <td>Brimsdown</td>
-      <td>Express</td>
-      <td>No</td>
-      <td>6110.20.20</td>
-      <td>Clothing &amp; Accessories</td>
-      <td>Jerseys  pullovers  cardigans  waistcoats and ...</td>
-      <td>Clothing</td>
-      <td>Tops</td>
-      <td>2017-10-14 12:41:11</td>
-      <td>5.086353</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Exporting result</span>
