@@ -7,7 +7,7 @@
 # 
 # The goal of this case study is to **understand the Expected Delivery Date of an order and provide a robust and accurate delivery date estimate** to the customer. To support your understanding of the problem and development of the challenge you will receive a dataset split in training and test set. Further details are given in the Data Instructions attached to the case.
 
-# ### Data Ingestion
+# ## Data Ingestion
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
@@ -35,6 +35,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import AdaBoostRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 
 
 # In[2]:
@@ -79,7 +80,7 @@ dfDuplicated = pd.DataFrame.duplicated(df,keep='first')
 dfDuplicated.sum()
 
 
-# ### Exploratory Data Analysis
+# ## Exploratory Data Analysis
 # 
 # Let us investigate the dataset more deeply.
 
@@ -138,7 +139,7 @@ df.describe()
 df.DeliveryTime.plot.hist(bins=50)
 
 
-# ### Feature Engineering
+# ## Feature Engineering
 # 
 # In this section we are going to explore the data and create the features for the model.
 # 
@@ -158,7 +159,7 @@ df.DeliveryTime.plot.hist(bins=50)
 mf = df.copy()
 
 
-# #### Dropping unused
+# ### Dropping unused
 
 # In[17]:
 
@@ -193,7 +194,7 @@ mf = dropUnused(mf)
 mf.head()
 
 
-# #### Trying to figure out coordenates from City/Coutry
+# ### Trying to figure out coordenates from City/Coutry
 # 
 # Altough technically possible on a few examples, the webservice doesn't allow us to iterate through so many rows, so it was not possible to do this transformation.
 
@@ -221,7 +222,7 @@ def defLatLong(modelFeatures):
     return modelFeatures
 
 
-# #### Dropping Nulls
+# ### Dropping Nulls
 
 # In[21]:
 
@@ -260,7 +261,7 @@ mf.shape
 mf.PartnerLongitude.isnull().sum()
 
 
-# #### Calculating distance between partner and customer
+# ### Calculating distance between partner and customer
 
 # In[26]:
 
@@ -291,7 +292,7 @@ mf.plot.scatter(x='DistanceKM',y='DeliveryTime')
 mf.DistanceKM.plot.hist(bins=50)
 
 
-# #### Preparing categorical variables
+# ### Preparing categorical variables
 
 # In[30]:
 
@@ -318,7 +319,7 @@ mf = prepareEncoding(mf)
 mf.head()
 
 
-# #### Getting month from data
+# ### Getting month from data
 
 # In[33]:
 
@@ -344,7 +345,7 @@ mf = getMonth(mf)
 mf.head()
 
 
-# #### Encoding categorical variables
+# ### Encoding categorical variables
 
 # In[36]:
 
@@ -377,7 +378,7 @@ mf = encodeCategories(mf)
 mf.head()
 
 
-# #### Dropping already used features
+# ### Dropping already used features
 
 # In[39]:
 
@@ -404,7 +405,7 @@ mf = dropUsed(mf)
 mf.head()
 
 
-# ### Model Selection
+# ## Model Selection
 # 
 # In this section we are going to use the features that we have prepared, in order to choose the best model.
 # 
@@ -412,7 +413,8 @@ mf.head()
 # - Linear Regression
 # - Decision Tree
 # - Random Forest
-# - AdaBoost
+# - Ada Boost
+# - Gradient Boosting
 
 # In[42]:
 
@@ -449,7 +451,7 @@ X = modelDf.drop(['DeliveryTime'], axis=1)
 y = modelDf['DeliveryTime']
 
 # Scaling X
-col_names = ['CustomerLatitude', 'CustomerLongitude','PartnerLatitude','PartnerLongitude','DistanceKM']
+col_names = ['CustomerLatitude', 'CustomerLongitude','PartnerLatitude','PartnerLongitude','DistanceKM','OrderMonth']
 scaler = StandardScaler().fit(X[col_names])
 X[col_names] = scaler.transform(X[col_names])
 X.head()
@@ -458,7 +460,7 @@ X.head()
 # In[46]:
 
 
-# Splitting train and validation
+# Splitting train and test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 
@@ -477,7 +479,11 @@ params ={
                     DecisionTreeRegressor(max_depth=10)],
                 'n_estimators':[50,75,100],
                 'learning_rate':[0.1,1,10],
-                'loss':['linear','square','exponential']}
+                'loss':['linear','square','exponential']},
+    'GradientBoosting':{'loss':['ls','lad','huber'],
+                        'learning_rate':[0.01,0.1,1],
+                        'n_estimators':[50,100,200],
+                        'criterion':['mse','friedman_mse','mae']}
 }
 
 
@@ -489,7 +495,8 @@ models = {
     'LinearRegression':LinearRegression(),
     'DecisionTree':DecisionTreeRegressor(),
     'RandomForest':RandomForestRegressor(),
-    'AdaBoost':AdaBoostRegressor()
+    'AdaBoost':AdaBoostRegressor(),
+    'GradientBoosting':GradientBoostingRegressor()GradientBoostingRegressor
 }
 
 
@@ -589,7 +596,7 @@ res.iloc[0]['base_estimator']
 res.iloc[0]
 
 
-# ### Training the best model
+# ## Training the best model
 # 
 # We are now going to train the best model, based on our previous search.
 
@@ -597,15 +604,11 @@ res.iloc[0]
 
 
 # Defining model
-bestModel = AdaBoostRegressor(
-    DecisionTreeRegressor(criterion='mse', max_depth=10, max_features=None,
-           max_leaf_nodes=None, min_impurity_decrease=0.0,
-           min_impurity_split=None, min_samples_leaf=1,
-           min_samples_split=2, min_weight_fraction_leaf=0.0,
-           presort=False, random_state=None, splitter='best'),
+bestModel = GradientBoostingRegressor(
+    criterion = 'mse',
     learning_rate = 0.1,
-    loss = 'exponential',
-    n_estimators = 50
+    loss = 'huber',
+    n_estimators = 200
 )
 
 
