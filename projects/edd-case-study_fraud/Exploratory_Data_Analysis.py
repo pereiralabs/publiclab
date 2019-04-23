@@ -11,7 +11,7 @@
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
-# In[290]:
+# In[59]:
 
 
 import matplotlib
@@ -23,8 +23,18 @@ import pandas_profiling as pp
 from geopy import distance
 from geopy import geocoders 
 from geopy.geocoders import Nominatim
+
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import AdaBoostRegressor
 
 
 # In[2]:
@@ -86,42 +96,42 @@ pr = pp.ProfileReport(df)
 pr
 
 
-# In[20]:
+# In[10]:
 
 
 # Analyzing missing Partner information
 df[df.PartnerLatitude.isnull()]
 
 
-# In[23]:
+# In[11]:
 
 
 # Analyzing missing Partner information
 df[(df.PartnerCountry.isnull()) & (df.PartnerLatitude.isnull())]
 
 
-# In[25]:
+# In[12]:
 
 
 # Analyzing missing Customer information
 df[df.CustomerLatitude.isnull()]
 
 
-# In[26]:
+# In[13]:
 
 
 # Analyzing missing Customer information
 df[(df.CustomerCountry.isnull()) & (df.CustomerLatitude.isnull())]
 
 
-# In[10]:
+# In[14]:
 
 
 # Numerical statistics
 df.describe()
 
 
-# In[17]:
+# In[15]:
 
 
 # Delivery Time Histogram
@@ -141,7 +151,7 @@ df.DeliveryTime.plot.hist(bins=50)
 # - Some important information are missing (e.g.: Lat, Long). We will try to replace it whenever we can, otherwise it is going to be discarded.
 # - We will create a new feature by calculating the distance between partner and customer using their lat/long info, because it seems like a very important feature.
 
-# In[255]:
+# In[16]:
 
 
 # Creates a new dataset where data is going to be transformed (mf=model features)
@@ -150,7 +160,7 @@ mf = df.copy()
 
 # #### Dropping unused
 
-# In[256]:
+# In[17]:
 
 
 # Dropping features we are not going to use
@@ -169,14 +179,14 @@ def dropUnused(modelFeatures):
     return modelFeatures
 
 
-# In[259]:
+# In[18]:
 
 
 # Applying changes to dataset
 mf = dropUnused(mf)
 
 
-# In[260]:
+# In[19]:
 
 
 # Verifying function
@@ -187,7 +197,7 @@ mf.head()
 # 
 # Altough technically possible on a few examples, the webservice doesn't allow us to iterate through so many rows, so it was not possible to do this transformation.
 
-# In[257]:
+# In[20]:
 
 
 # Filling in missing Lat/Long - Webservice did not support multiple calls
@@ -213,7 +223,7 @@ def defLatLong(modelFeatures):
 
 # #### Dropping Nulls
 
-# In[258]:
+# In[21]:
 
 
 # Drop Nulls
@@ -222,28 +232,28 @@ def dropNulls(modelFeatures):
     return modelFeatures
 
 
-# In[261]:
+# In[22]:
 
 
 # Verifying function
 mf.shape
 
 
-# In[262]:
+# In[23]:
 
 
 # Dropping nulls
 mf = dropNulls(mf)
 
 
-# In[263]:
+# In[24]:
 
 
 # Verifying function
 mf.shape
 
 
-# In[264]:
+# In[25]:
 
 
 # Verifying function
@@ -252,7 +262,7 @@ mf.PartnerLongitude.isnull().sum()
 
 # #### Calculating distance between partner and customer
 
-# In[265]:
+# In[26]:
 
 
 # Calculates distance between coordinates
@@ -261,20 +271,20 @@ def calcDist(modelFeatures):
     return modelFeatures
 
 
-# In[266]:
+# In[27]:
 
 
 mf = calcDist(mf)
 
 
-# In[267]:
+# In[28]:
 
 
 # Verifying function
 mf.plot.scatter(x='DistanceKM',y='DeliveryTime')
 
 
-# In[268]:
+# In[29]:
 
 
 # Distance Histogram
@@ -283,7 +293,7 @@ mf.DistanceKM.plot.hist(bins=50)
 
 # #### Preparing categorical variables
 
-# In[271]:
+# In[30]:
 
 
 # Preparing categorical variables for one hot encoding
@@ -294,14 +304,14 @@ def prepareEncoding(modelFeatures):
     return modelFeatures
 
 
-# In[272]:
+# In[31]:
 
 
 # Applying changes
 mf = prepareEncoding(mf)
 
 
-# In[273]:
+# In[32]:
 
 
 # Verifying changes
@@ -310,24 +320,24 @@ mf.head()
 
 # #### Getting month from data
 
-# In[278]:
+# In[33]:
 
 
 # Get month from date due to seasonality
 def getMonth(modelFeatures):
     modelFeatures['OrderDate'] = modelFeatures.OrderDate.str.slice(5,7)
+    modelFeatures.rename(index=str, columns={'OrderDate':'OrderMonth'}, inplace=True)
     return modelFeatures
 
 
-# In[279]:
+# In[34]:
 
 
 # Applying changes
 mf = getMonth(mf)
-mf.rename(index=str, columns={'OrderDate':'OrderMonth'}, inplace=True)
 
 
-# In[282]:
+# In[35]:
 
 
 # Verifying changes
@@ -336,31 +346,224 @@ mf.head()
 
 # #### Encoding categorical variables
 
-# In[287]:
+# In[36]:
 
 
 def encodeCategories(modelFeatures):
-    label_encoder = LabelEncoder()
-    onehot_encoder = OneHotEncoder()
-    
-    modelFeatures['DdpCategoryNum'] = label_encoder.fit_transform(modelFeatures['DdpCategory'])
-    modelFeatures['Category1stLevelNum'] = label_encoder.fit_transform(modelFeatures['Category1stLevel'])
-    
-    oheDdp = onehot_encoder.fit_transform(modelFeatures['DdpCategoryNum'])
+    modelFeatures['CategoryClothing'] = modelFeatures.DdpCategory.apply(str).apply(lambda x: 1 if x == 'CategoryClothing' else 0)
+    modelFeatures['CategoryFootwear'] = modelFeatures.DdpCategory.apply(str).apply(lambda x: 1 if x == 'CategoryFootwear' else 0)
+    modelFeatures['CategoryOthers'] = modelFeatures.DdpCategory.apply(str).apply(lambda x: 1 if x == 'CategoryOthers' else 0)
+
+    modelFeatures['Category1stLevel'] = modelFeatures.Category1stLevel.apply(str).apply(lambda x: 'LevelClothing' if x == 'Clothing' else ('LevelShoes' if x == 'Shoes'  else ('LevelBags' if x == 'Bags'  else 'LevelOthers')))
+    modelFeatures['LevelClothing'] = modelFeatures.Category1stLevel.apply(str).apply(lambda x: 1 if x == 'LevelClothing' else 0)
+    modelFeatures['LevelShoes'] = modelFeatures.Category1stLevel.apply(str).apply(lambda x: 1 if x == 'LevelShoes' else 0)
+    modelFeatures['LevelBags'] = modelFeatures.Category1stLevel.apply(str).apply(lambda x: 1 if x == 'LevelBags' else 0)
+    modelFeatures['LevelOthers'] = modelFeatures.Category1stLevel.apply(str).apply(lambda x: 1 if x == 'LevelOthers' else 0)
     
     return modelFeatures
 
 
-# In[288]:
+# In[37]:
 
 
 # Applying changes
 mf = encodeCategories(mf)
 
 
-# In[289]:
+# In[38]:
 
 
 # Verifying changes
 mf.head()
+
+
+# #### Dropping already used features
+
+# In[39]:
+
+
+# Dropping features we are not going to use
+def dropUsed(modelFeatures):
+    modelFeatures.drop(labels='DdpCategory', axis=1, inplace=True)
+    modelFeatures.drop(labels='Category1stLevel', axis=1, inplace=True)
+    
+    return modelFeatures
+
+
+# In[40]:
+
+
+# Applying changes
+mf = dropUsed(mf)
+
+
+# In[41]:
+
+
+# Verifying changes
+mf.head()
+
+
+# ### Model Selection
+# 
+# In this section we are going to use the features that we have prepared, in order to choose the best model.
+# 
+# We will train the following models:
+# - Linear Regression
+# - Decision Tree
+# - Random Forest
+# - AdaBoost
+
+# In[50]:
+
+
+# Creating the dataframe
+modelDf = df.copy()
+
+
+# In[51]:
+
+
+# Applying feature engineering transformations
+modelDf = dropUnused(modelDf)
+modelDf = dropNulls(modelDf)
+modelDf = calcDist(modelDf)
+modelDf = prepareEncoding(modelDf)
+modelDf = getMonth(modelDf)
+modelDf = encodeCategories(modelDf)
+modelDf = dropUsed(modelDf)
+
+
+# In[52]:
+
+
+# Verifying changes
+modelDf.head()
+
+
+# In[56]:
+
+
+# Splitting X and Y
+X = modelDf.drop(['DeliveryTime'], axis=1)
+y = modelDf['DeliveryTime']
+
+#Scaling X
+col_names = ['CustomerLatitude', 'CustomerLongitude','PartnerLatitude','PartnerLongitude','DistanceKM']
+scaler = StandardScaler().fit(X[col_names])
+X[col_names] = scaler.transform(X[col_names])
+X.head()
+
+
+# In[57]:
+
+
+# Splitting train and validation
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
+
+
+# In[70]:
+
+
+#Definig hyperparameters space
+params ={
+    'LinearRegression':{'fit_intercept':[True,False]},
+    'DecisionTree':{'criterion':['mse','friedman_mse','mae'], 
+                    'splitter':['best','random']},
+    'RandomForest':{'n_estimators':[10,50,100], 
+                    'criterion':['mse','mae']},
+    'AdaBoost':{'base_estimator':[DecisionTreeRegressor(max_depth=3),
+                    DecisionTreeRegressor(max_depth=5),
+                    DecisionTreeRegressor(max_depth=10)],
+                'n_estimators':[50,75,100],
+                'learning_rate':[0.1,1,10],
+                'loss':['linear','square','exponential']}
+}
+
+
+# In[72]:
+
+
+#Defining models
+models = {
+    'LinearRegression':LinearRegression(),
+    'DecisionTree':RandomForestRegressor(),
+    'RandomForest':DecisionTreeRegressor(),
+    'AdaBoost':AdaBoostRegressor()
+}
+
+
+# In[74]:
+
+
+#Defining GridSearch selection helper
+class EstimatorSelectionHelper:
+
+    def __init__(self, models, params):
+        if not set(models.keys()).issubset(set(params.keys())):
+            missing_params = list(set(models.keys()) - set(params.keys()))
+            raise ValueError("Some estimators are missing parameters: %s" % missing_params)
+        self.models = models
+        self.params = params
+        self.keys = models.keys()
+        self.grid_searches = {}
+
+    def fit(self, X, y, cv=3, n_jobs=3, verbose=1, scoring=None, refit=False):
+        for key in self.keys:
+            print("Running GridSearchCV for %s." % key)
+            model = self.models[key]
+            params = self.params[key]
+            gs = GridSearchCV(model, params, cv=cv, n_jobs=n_jobs,
+                              verbose=verbose, scoring=scoring, refit=refit,
+                              return_train_score=True)
+            gs.fit(X,y)
+            self.grid_searches[key] = gs    
+
+    def score_summary(self, sort_by='mean_score'):
+        def row(key, scores, params):
+            d = {
+                 'estimator': key,
+                 'min_score': min(scores),
+                 'max_score': max(scores),
+                 'mean_score': np.mean(scores),
+                 'std_score': np.std(scores),
+            }
+            return pd.Series({**params,**d})
+
+        rows = []
+        for k in self.grid_searches:
+            print(k)
+            params = self.grid_searches[k].cv_results_['params']
+            scores = []
+            for i in range(self.grid_searches[k].cv):
+                key = "split{}_test_score".format(i)
+                r = self.grid_searches[k].cv_results_[key]        
+                scores.append(r.reshape(len(params),1))
+
+            all_scores = np.hstack(scores)
+            for p, s in zip(params,all_scores):
+                rows.append((row(k, s, p)))
+
+        df = pd.concat(rows, axis=1).T.sort_values([sort_by], ascending=False)
+
+        columns = ['estimator', 'min_score', 'mean_score', 'max_score', 'std_score']
+        columns = columns + [c for c in df.columns if c not in columns]
+
+        return df[columns]
+
+
+# In[71]:
+
+
+#Executing GridSearch
+helper = EstimatorSelectionHelper(models, params)
+helper.fit(X_train, y_train, scoring='neg_mean_squared_error', n_jobs=3)
+
+
+# In[ ]:
+
+
+#Verifying results
+print('Best score:', grid.best_score_)
+print('Best parameters:', grid.best_params_)
 
