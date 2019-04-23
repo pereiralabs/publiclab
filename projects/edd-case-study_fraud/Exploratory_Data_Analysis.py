@@ -552,7 +552,7 @@ class EstimatorSelectionHelper:
         return df[columns]
 
 
-# In[81]:
+# In[84]:
 
 
 #Executing GridSearch
@@ -560,10 +560,9 @@ helper = EstimatorSelectionHelper(models, params)
 helper.fit(X_train, y_train, scoring='neg_mean_squared_error', n_jobs=3)
 
 
-# In[ ]:
+# In[86]:
 
 
 #Verifying results
-print('Best score:', grid.best_score_)
-print('Best parameters:', grid.best_params_)
+helper.score_summary(sort_by='min_score')
 

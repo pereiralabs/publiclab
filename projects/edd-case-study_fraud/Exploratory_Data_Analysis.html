@@ -23118,7 +23118,7 @@ ZSbGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Definig hyperparameters space</span>
@@ -23144,7 +23144,7 @@ ZSbGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Defining models</span>
@@ -23229,7 +23229,7 @@ ZSbGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Executing GridSearch</span>
@@ -23264,7 +23264,7 @@ Fitting 3 folds for each of 2 candidates, totalling 6 fits
 
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>[Parallel(n_jobs=3)]: Using backend LokyBackend with 3 concurrent workers.
-[Parallel(n_jobs=3)]: Done   6 out of   6 | elapsed:    2.1s finished
+[Parallel(n_jobs=3)]: Done   6 out of   6 | elapsed:    2.0s finished
 [Parallel(n_jobs=3)]: Using backend LokyBackend with 3 concurrent workers.
 </pre>
 </div>
@@ -23277,7 +23277,7 @@ Fitting 3 folds for each of 2 candidates, totalling 6 fits
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Running GridSearchCV for DecisionTree.
-Fitting 3 folds for each of 3 candidates, totalling 9 fits
+Fitting 3 folds for each of 6 candidates, totalling 18 fits
 </pre>
 </div>
 </div>
@@ -23288,7 +23288,7 @@ Fitting 3 folds for each of 3 candidates, totalling 9 fits
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>[Parallel(n_jobs=3)]: Done   9 out of   9 | elapsed:    7.4s finished
+<pre>[Parallel(n_jobs=3)]: Done  18 out of  18 | elapsed:    3.5s finished
 [Parallel(n_jobs=3)]: Using backend LokyBackend with 3 concurrent workers.
 </pre>
 </div>
@@ -23311,110 +23311,37 @@ Fitting 3 folds for each of 6 candidates, totalling 18 fits
 <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">_RemoteTraceback</span>                          Traceback (most recent call last)
-<span class="ansi-red-fg">_RemoteTraceback</span>: 
-&#34;&#34;&#34;
-Traceback (most recent call last):
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/externals/loky/process_executor.py&#34;, line 418, in _process_worker
-    r = call_item()
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/externals/loky/process_executor.py&#34;, line 272, in __call__
-    return self.fn(*self.args, **self.kwargs)
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/_parallel_backends.py&#34;, line 567, in __call__
-    return self.func(*args, **kwargs)
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py&#34;, line 225, in __call__
-    for func, args, kwargs in self.items]
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py&#34;, line 225, in &lt;listcomp&gt;
-    for func, args, kwargs in self.items]
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/model_selection/_validation.py&#34;, line 514, in _fit_and_score
-    estimator.set_params(**parameters)
-  File &#34;/opt/anaconda/lib/python3.6/site-packages/sklearn/base.py&#34;, line 215, in set_params
-    (key, self))
-ValueError: Invalid parameter n_estimators for estimator DecisionTreeRegressor(criterion=&#39;mse&#39;, max_depth=None, max_features=None,
-           max_leaf_nodes=None, min_impurity_decrease=0.0,
-           min_impurity_split=None, min_samples_leaf=1,
-           min_samples_split=2, min_weight_fraction_leaf=0.0,
-           presort=False, random_state=None, splitter=&#39;best&#39;). Check the list of available parameters with `estimator.get_params().keys()`.
-&#34;&#34;&#34;
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=3)]: Done  18 out of  18 | elapsed:  1.9min finished
+[Parallel(n_jobs=3)]: Using backend LokyBackend with 3 concurrent workers.
+</pre>
+</div>
+</div>
 
-The above exception was the direct cause of the following exception:
+<div class="output_area">
 
-<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-81-b035e8791b94&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg">#Executing GridSearch</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> helper <span class="ansi-blue-fg">=</span> EstimatorSelectionHelper<span class="ansi-blue-fg">(</span>models<span class="ansi-blue-fg">,</span> params<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>helper<span class="ansi-blue-fg">.</span>fit<span class="ansi-blue-fg">(</span>X_train<span class="ansi-blue-fg">,</span> y_train<span class="ansi-blue-fg">,</span> scoring<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">&#39;neg_mean_squared_error&#39;</span><span class="ansi-blue-fg">,</span> n_jobs<span class="ansi-blue-fg">=</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">)</span>
+<div class="prompt"></div>
 
-<span class="ansi-green-fg">&lt;ipython-input-78-3539078fd4e5&gt;</span> in <span class="ansi-cyan-fg">fit</span><span class="ansi-blue-fg">(self, X, y, cv, n_jobs, verbose, scoring, refit)</span>
-<span class="ansi-green-intense-fg ansi-bold">     19</span>                               verbose<span class="ansi-blue-fg">=</span>verbose<span class="ansi-blue-fg">,</span> scoring<span class="ansi-blue-fg">=</span>scoring<span class="ansi-blue-fg">,</span> refit<span class="ansi-blue-fg">=</span>refit<span class="ansi-blue-fg">,</span>
-<span class="ansi-green-intense-fg ansi-bold">     20</span>                               return_train_score=True)
-<span class="ansi-green-fg">---&gt; 21</span><span class="ansi-red-fg">             </span>gs<span class="ansi-blue-fg">.</span>fit<span class="ansi-blue-fg">(</span>X<span class="ansi-blue-fg">,</span>y<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     22</span>             self<span class="ansi-blue-fg">.</span>grid_searches<span class="ansi-blue-fg">[</span>key<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> gs
-<span class="ansi-green-intense-fg ansi-bold">     23</span> 
 
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/site-packages/sklearn/model_selection/_search.py</span> in <span class="ansi-cyan-fg">fit</span><span class="ansi-blue-fg">(self, X, y, groups, **fit_params)</span>
-<span class="ansi-green-intense-fg ansi-bold">    720</span>                 <span class="ansi-green-fg">return</span> results_container<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">    721</span> 
-<span class="ansi-green-fg">--&gt; 722</span><span class="ansi-red-fg">             </span>self<span class="ansi-blue-fg">.</span>_run_search<span class="ansi-blue-fg">(</span>evaluate_candidates<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    723</span> 
-<span class="ansi-green-intense-fg ansi-bold">    724</span>         results <span class="ansi-blue-fg">=</span> results_container<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">0</span><span class="ansi-blue-fg">]</span>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Running GridSearchCV for AdaBoost.
+Fitting 3 folds for each of 81 candidates, totalling 243 fits
+</pre>
+</div>
+</div>
 
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/site-packages/sklearn/model_selection/_search.py</span> in <span class="ansi-cyan-fg">_run_search</span><span class="ansi-blue-fg">(self, evaluate_candidates)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1189</span>     <span class="ansi-green-fg">def</span> _run_search<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> evaluate_candidates<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">   1190</span>         <span class="ansi-blue-fg">&#34;&#34;&#34;Search all candidates in param_grid&#34;&#34;&#34;</span>
-<span class="ansi-green-fg">-&gt; 1191</span><span class="ansi-red-fg">         </span>evaluate_candidates<span class="ansi-blue-fg">(</span>ParameterGrid<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>param_grid<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1192</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1193</span> 
+<div class="output_area">
 
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/site-packages/sklearn/model_selection/_search.py</span> in <span class="ansi-cyan-fg">evaluate_candidates</span><span class="ansi-blue-fg">(candidate_params)</span>
-<span class="ansi-green-intense-fg ansi-bold">    709</span>                                <span class="ansi-green-fg">for</span> parameters<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">(</span>train<span class="ansi-blue-fg">,</span> test<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    710</span>                                in product(candidate_params,
-<span class="ansi-green-fg">--&gt; 711</span><span class="ansi-red-fg">                                           cv.split(X, y, groups)))
-</span><span class="ansi-green-intense-fg ansi-bold">    712</span> 
-<span class="ansi-green-intense-fg ansi-bold">    713</span>                 all_candidate_params<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span>candidate_params<span class="ansi-blue-fg">)</span>
+<div class="prompt"></div>
 
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-fg">(self, iterable)</span>
-<span class="ansi-green-intense-fg ansi-bold">    928</span> 
-<span class="ansi-green-intense-fg ansi-bold">    929</span>             <span class="ansi-green-fg">with</span> self<span class="ansi-blue-fg">.</span>_backend<span class="ansi-blue-fg">.</span>retrieval_context<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 930</span><span class="ansi-red-fg">                 </span>self<span class="ansi-blue-fg">.</span>retrieve<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    931</span>             <span class="ansi-red-fg"># Make sure that we get a last message telling us we are done</span>
-<span class="ansi-green-intense-fg ansi-bold">    932</span>             elapsed_time <span class="ansi-blue-fg">=</span> time<span class="ansi-blue-fg">.</span>time<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span> <span class="ansi-blue-fg">-</span> self<span class="ansi-blue-fg">.</span>_start_time
 
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/parallel.py</span> in <span class="ansi-cyan-fg">retrieve</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    831</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    832</span>                 <span class="ansi-green-fg">if</span> getattr<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>_backend<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;supports_timeout&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 833</span><span class="ansi-red-fg">                     </span>self<span class="ansi-blue-fg">.</span>_output<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span>job<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span>timeout<span class="ansi-blue-fg">=</span>self<span class="ansi-blue-fg">.</span>timeout<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    834</span>                 <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    835</span>                     self<span class="ansi-blue-fg">.</span>_output<span class="ansi-blue-fg">.</span>extend<span class="ansi-blue-fg">(</span>job<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/site-packages/sklearn/externals/joblib/_parallel_backends.py</span> in <span class="ansi-cyan-fg">wrap_future_result</span><span class="ansi-blue-fg">(future, timeout)</span>
-<span class="ansi-green-intense-fg ansi-bold">    519</span>         AsyncResults.get from multiprocessing.&#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">    520</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 521</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">return</span> future<span class="ansi-blue-fg">.</span>result<span class="ansi-blue-fg">(</span>timeout<span class="ansi-blue-fg">=</span>timeout<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    522</span>         <span class="ansi-green-fg">except</span> LokyTimeoutError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    523</span>             <span class="ansi-green-fg">raise</span> TimeoutError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/concurrent/futures/_base.py</span> in <span class="ansi-cyan-fg">result</span><span class="ansi-blue-fg">(self, timeout)</span>
-<span class="ansi-green-intense-fg ansi-bold">    430</span>                 <span class="ansi-green-fg">raise</span> CancelledError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    431</span>             <span class="ansi-green-fg">elif</span> self<span class="ansi-blue-fg">.</span>_state <span class="ansi-blue-fg">==</span> FINISHED<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 432</span><span class="ansi-red-fg">                 </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>__get_result<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    433</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    434</span>                 <span class="ansi-green-fg">raise</span> TimeoutError<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/opt/anaconda/lib/python3.6/concurrent/futures/_base.py</span> in <span class="ansi-cyan-fg">__get_result</span><span class="ansi-blue-fg">(self)</span>
-<span class="ansi-green-intense-fg ansi-bold">    382</span>     <span class="ansi-green-fg">def</span> __get_result<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    383</span>         <span class="ansi-green-fg">if</span> self<span class="ansi-blue-fg">.</span>_exception<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 384</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> self<span class="ansi-blue-fg">.</span>_exception
-<span class="ansi-green-intense-fg ansi-bold">    385</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    386</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_result
-
-<span class="ansi-red-fg">ValueError</span>: Invalid parameter n_estimators for estimator DecisionTreeRegressor(criterion=&#39;mse&#39;, max_depth=None, max_features=None,
-           max_leaf_nodes=None, min_impurity_decrease=0.0,
-           min_impurity_split=None, min_samples_leaf=1,
-           min_samples_split=2, min_weight_fraction_leaf=0.0,
-           presort=False, random_state=None, splitter=&#39;best&#39;). Check the list of available parameters with `estimator.get_params().keys()`.</pre>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>[Parallel(n_jobs=3)]: Done  44 tasks      | elapsed:    7.4s
+[Parallel(n_jobs=3)]: Done 194 tasks      | elapsed:   42.2s
+[Parallel(n_jobs=3)]: Done 243 out of 243 | elapsed:   50.4s finished
+/opt/anaconda/lib/python3.6/site-packages/sklearn/model_selection/_search.py:841: DeprecationWarning: The default of the `iid` parameter will change from True to False in version 0.22 and will be removed in 0.24. This will change numeric results when test-set sizes are unequal.
+  DeprecationWarning)
+</pre>
 </div>
 </div>
 
@@ -23424,15 +23351,998 @@ The above exception was the direct cause of the following exception:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Verifying results</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best score:&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Best parameters:&#39;</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="n">helper</span><span class="o">.</span><span class="n">score_summary</span><span class="p">(</span><span class="n">sort_by</span><span class="o">=</span><span class="s1">&#39;min_score&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>LinearRegression
+DecisionTree
+RandomForest
+AdaBoost
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[86]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>estimator</th>
+      <th>min_score</th>
+      <th>mean_score</th>
+      <th>max_score</th>
+      <th>std_score</th>
+      <th>base_estimator</th>
+      <th>criterion</th>
+      <th>fit_intercept</th>
+      <th>learning_rate</th>
+      <th>loss</th>
+      <th>n_estimators</th>
+      <th>splitter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>RandomForest</td>
+      <td>-24.3172</td>
+      <td>-14.9001</td>
+      <td>-9.08234</td>
+      <td>6.72019</td>
+      <td>NaN</td>
+      <td>mae</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>AdaBoost</td>
+      <td>-24.401</td>
+      <td>-13.8863</td>
+      <td>-7.81011</td>
+      <td>7.46498</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>RandomForest</td>
+      <td>-24.4293</td>
+      <td>-14.8497</td>
+      <td>-9.06583</td>
+      <td>6.82228</td>
+      <td>NaN</td>
+      <td>mae</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>RandomForest</td>
+      <td>-24.594</td>
+      <td>-14.6422</td>
+      <td>-8.93539</td>
+      <td>7.06221</td>
+      <td>NaN</td>
+      <td>mse</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>AdaBoost</td>
+      <td>-24.6159</td>
+      <td>-14.1273</td>
+      <td>-8.0714</td>
+      <td>7.4461</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>AdaBoost</td>
+      <td>-24.6265</td>
+      <td>-14.2814</td>
+      <td>-8.43673</td>
+      <td>7.33566</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>AdaBoost</td>
+      <td>-24.6462</td>
+      <td>-14.0499</td>
+      <td>-7.75424</td>
+      <td>7.5368</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>AdaBoost</td>
+      <td>-24.69</td>
+      <td>-14.0456</td>
+      <td>-7.82959</td>
+      <td>7.56204</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>LinearRegression</td>
+      <td>-24.6962</td>
+      <td>-14.3244</td>
+      <td>-8.41842</td>
+      <td>7.35748</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>LinearRegression</td>
+      <td>-24.6962</td>
+      <td>-14.3244</td>
+      <td>-8.41842</td>
+      <td>7.35748</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>AdaBoost</td>
+      <td>-24.7016</td>
+      <td>-18.2515</td>
+      <td>-7.99319</td>
+      <td>7.3335</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>RandomForest</td>
+      <td>-24.7085</td>
+      <td>-14.7298</td>
+      <td>-9.01243</td>
+      <td>7.08102</td>
+      <td>NaN</td>
+      <td>mse</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>AdaBoost</td>
+      <td>-24.7256</td>
+      <td>-14.0179</td>
+      <td>-7.66099</td>
+      <td>7.61569</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>AdaBoost</td>
+      <td>-24.7492</td>
+      <td>-14.168</td>
+      <td>-8.10003</td>
+      <td>7.50895</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>AdaBoost</td>
+      <td>-24.7744</td>
+      <td>-14.5139</td>
+      <td>-8.83558</td>
+      <td>7.2691</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>AdaBoost</td>
+      <td>-24.846</td>
+      <td>-14.7654</td>
+      <td>-9.52437</td>
+      <td>7.12998</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>AdaBoost</td>
+      <td>-24.9436</td>
+      <td>-14.4232</td>
+      <td>-8.07664</td>
+      <td>7.49175</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>AdaBoost</td>
+      <td>-24.9671</td>
+      <td>-14.6678</td>
+      <td>-8.33825</td>
+      <td>7.34611</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>AdaBoost</td>
+      <td>-24.9904</td>
+      <td>-14.7865</td>
+      <td>-9.04809</td>
+      <td>7.23397</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>AdaBoost</td>
+      <td>-25.0119</td>
+      <td>-18.7177</td>
+      <td>-10.2262</td>
+      <td>6.23298</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>AdaBoost</td>
+      <td>-25.0304</td>
+      <td>-14.7868</td>
+      <td>-8.80619</td>
+      <td>7.27717</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>AdaBoost</td>
+      <td>-25.0387</td>
+      <td>-18.394</td>
+      <td>-9.84582</td>
+      <td>6.34683</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>AdaBoost</td>
+      <td>-25.0705</td>
+      <td>-18.7386</td>
+      <td>-8.70336</td>
+      <td>7.17666</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>AdaBoost</td>
+      <td>-25.0919</td>
+      <td>-22.9994</td>
+      <td>-20.7811</td>
+      <td>1.76212</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>AdaBoost</td>
+      <td>-25.1447</td>
+      <td>-19.2513</td>
+      <td>-10.6985</td>
+      <td>6.1902</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>AdaBoost</td>
+      <td>-25.1514</td>
+      <td>-18.675</td>
+      <td>-10.544</td>
+      <td>6.07712</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>AdaBoost</td>
+      <td>-25.2568</td>
+      <td>-18.8625</td>
+      <td>-8.52764</td>
+      <td>7.37617</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>AdaBoost</td>
+      <td>-25.2585</td>
+      <td>-14.227</td>
+      <td>-7.87768</td>
+      <td>7.83009</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>AdaBoost</td>
+      <td>-25.2693</td>
+      <td>-18.5345</td>
+      <td>-9.711</td>
+      <td>6.52111</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>AdaBoost</td>
+      <td>-25.2846</td>
+      <td>-14.4154</td>
+      <td>-8.26421</td>
+      <td>7.70794</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.1</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>AdaBoost</td>
+      <td>-83.9591</td>
+      <td>-54.9567</td>
+      <td>-35.0054</td>
+      <td>20.985</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>AdaBoost</td>
+      <td>-85.4881</td>
+      <td>-49.8014</td>
+      <td>-30.6172</td>
+      <td>25.258</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>AdaBoost</td>
+      <td>-112.76</td>
+      <td>-83.1204</td>
+      <td>-59.1754</td>
+      <td>22.2431</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>AdaBoost</td>
+      <td>-113.15</td>
+      <td>-58.2631</td>
+      <td>-28.3408</td>
+      <td>38.8634</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>AdaBoost</td>
+      <td>-122.205</td>
+      <td>-49.0281</td>
+      <td>-10.4751</td>
+      <td>51.7688</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>AdaBoost</td>
+      <td>-145.098</td>
+      <td>-119.691</td>
+      <td>-94.3856</td>
+      <td>20.7033</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>AdaBoost</td>
+      <td>-145.698</td>
+      <td>-136.289</td>
+      <td>-126.527</td>
+      <td>7.83029</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>AdaBoost</td>
+      <td>-160.925</td>
+      <td>-78.2979</td>
+      <td>-35.6139</td>
+      <td>58.4372</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>AdaBoost</td>
+      <td>-173.261</td>
+      <td>-66.2923</td>
+      <td>-10.4489</td>
+      <td>75.6626</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>AdaBoost</td>
+      <td>-176.616</td>
+      <td>-80.2067</td>
+      <td>-30.7053</td>
+      <td>68.1799</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>AdaBoost</td>
+      <td>-188.289</td>
+      <td>-79.4641</td>
+      <td>-19.3983</td>
+      <td>77.089</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>AdaBoost</td>
+      <td>-218.228</td>
+      <td>-149.206</td>
+      <td>-20.4419</td>
+      <td>91.1291</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>AdaBoost</td>
+      <td>-290.323</td>
+      <td>-103.127</td>
+      <td>-8.44035</td>
+      <td>132.371</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>AdaBoost</td>
+      <td>-411.048</td>
+      <td>-144.309</td>
+      <td>-10.5398</td>
+      <td>188.613</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>AdaBoost</td>
+      <td>-465.061</td>
+      <td>-161.859</td>
+      <td>-8.8639</td>
+      <td>214.399</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>AdaBoost</td>
+      <td>-608.494</td>
+      <td>-212.038</td>
+      <td>-11.5924</td>
+      <td>280.343</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>AdaBoost</td>
+      <td>-632.235</td>
+      <td>-219.139</td>
+      <td>-10.49</td>
+      <td>292.108</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>AdaBoost</td>
+      <td>-717.925</td>
+      <td>-332.144</td>
+      <td>-27.8535</td>
+      <td>287.553</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>AdaBoost</td>
+      <td>-872.526</td>
+      <td>-311.395</td>
+      <td>-28.3597</td>
+      <td>396.785</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>AdaBoost</td>
+      <td>-964.851</td>
+      <td>-342.272</td>
+      <td>-28.6652</td>
+      <td>440.234</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>AdaBoost</td>
+      <td>-1050.93</td>
+      <td>-482.348</td>
+      <td>-116.464</td>
+      <td>407.53</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>AdaBoost</td>
+      <td>-1437.68</td>
+      <td>-496.418</td>
+      <td>-24.4345</td>
+      <td>665.573</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>AdaBoost</td>
+      <td>-1777.83</td>
+      <td>-612.056</td>
+      <td>-25.0411</td>
+      <td>824.332</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>square</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>AdaBoost</td>
+      <td>-2635.47</td>
+      <td>-1283.73</td>
+      <td>-217.48</td>
+      <td>1007.57</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>AdaBoost</td>
+      <td>-3158.1</td>
+      <td>-1288.79</td>
+      <td>-238.165</td>
+      <td>1325.19</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>AdaBoost</td>
+      <td>-3484.33</td>
+      <td>-1459.82</td>
+      <td>-18.6078</td>
+      <td>1473.76</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>linear</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>AdaBoost</td>
+      <td>-5164.14</td>
+      <td>-2882.05</td>
+      <td>-220.526</td>
+      <td>2035.98</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>AdaBoost</td>
+      <td>-5321.07</td>
+      <td>-2769.95</td>
+      <td>-224.6</td>
+      <td>2080.63</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>50</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>AdaBoost</td>
+      <td>-7055.55</td>
+      <td>-4459.83</td>
+      <td>-251.357</td>
+      <td>3002.78</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>100</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>AdaBoost</td>
+      <td>-7236.95</td>
+      <td>-4350.63</td>
+      <td>-295.949</td>
+      <td>2951.63</td>
+      <td>DecisionTreeRegressor(criterion='mse', max_dep...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>exponential</td>
+      <td>75</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 12 columns</p>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
