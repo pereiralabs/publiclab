@@ -3,15 +3,13 @@
 
 # # Estimated Delivery Date: A case study
 # 
-# When shopping at Farfetch, customers are offered a catalog of thousands of products that are sourced from different partners spread around the world. During the shopping experience, customers must have an accurate estimate of their purchase delivery date to manage their expectations.
-# 
 # The goal of this case study is to **understand the Expected Delivery Date of an order and provide a robust and accurate delivery date estimate** to the customer. To support your understanding of the problem and development of the challenge you will receive a dataset split in training and test set. Further details are given in the Data Instructions attached to the case.
 
 # ## Data Ingestion
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
-# In[68]:
+# In[3]:
 
 
 import matplotlib
@@ -40,7 +38,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from joblib import dump, load
 
 
-# In[2]:
+# In[4]:
 
 
 get_ipython().magic('matplotlib inline')
@@ -693,6 +691,7 @@ outputDf = testDf.copy()
 
 
 # Applying feature engineering transformations
+col_names = ['CustomerLatitude', 'CustomerLongitude','PartnerLatitude','PartnerLongitude','DistanceKM','OrderMonth']
 testDf = dropUnused(testDf)
 testDf = replaceNulls(testDf)
 testDf = calcDist(testDf)
@@ -700,7 +699,6 @@ testDf = prepareEncoding(testDf)
 testDf = getMonth(testDf)
 testDf = encodeCategories(testDf)
 testDf = dropUsed(testDf)
-col_names = ['CustomerLatitude', 'CustomerLongitude','PartnerLatitude','PartnerLongitude','DistanceKM','OrderMonth']
 scaler = StandardScaler().fit(testDf[col_names])
 testDf[col_names] = scaler.transform(testDf[col_names])
 
@@ -724,4 +722,49 @@ outputDf['DeliveryTime'] = testPred
 
 # Exporting result
 outputDf.to_csv(path_or_buf='edd_results.csv', columns=['OrderLineID','DeliveryTime'], index=False)
+
+
+# ## Requirements
+# 
+# List of used packages and versions.
+
+# In[13]:
+
+
+import pkg_resources
+import types
+def get_imports():
+    for name, val in globals().items():
+        if isinstance(val, types.ModuleType):
+            # Split ensures you get root package, 
+            # not just imported function
+            name = val.__name__.split(".")[0]
+
+        elif isinstance(val, type):
+            name = val.__module__.split(".")[0]
+
+        # Some packages are weird and have different
+        # imported names vs. system/pip names. Unfortunately,
+        # there is no systematic way to get pip names from
+        # a package's imported name. You'll have to had
+        # exceptions to this list manually!
+        poorly_named_packages = {
+            "PIL": "Pillow",
+            "sklearn": "scikit-learn"
+        }
+        if name in poorly_named_packages.keys():
+            name = poorly_named_packages[name]
+
+        yield name
+imports = list(set(get_imports()))
+
+# The only way I found to get the version of the root package
+# from only the name of the package is to cross-check the names 
+# of installed packages vs. imported packages
+requirements = []
+for m in pkg_resources.working_set:
+    if m.project_name in imports and m.project_name!="pip":
+        requirements.append((m.project_name, m.version))
+        
+requirements
 
