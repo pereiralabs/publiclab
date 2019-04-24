@@ -9,7 +9,7 @@
 # 
 # We are going to start this study by ingesting the given dataset and verifying its data quality, in order to manage any problem that might appear.
 
-# In[3]:
+# In[1]:
 
 
 import matplotlib
@@ -38,7 +38,7 @@ from sklearn.ensemble import GradientBoostingRegressor
 from joblib import dump, load
 
 
-# In[4]:
+# In[2]:
 
 
 get_ipython().magic('matplotlib inline')
@@ -266,7 +266,7 @@ mf.PartnerLongitude.isnull().sum()
 # 
 # Used in final predicting.
 
-# In[114]:
+# In[26]:
 
 
 def replaceNulls(modelFeatures):
@@ -276,7 +276,7 @@ def replaceNulls(modelFeatures):
 
 # ### Calculating distance between partner and customer
 
-# In[26]:
+# In[27]:
 
 
 # Calculates distance between coordinates
@@ -285,20 +285,20 @@ def calcDist(modelFeatures):
     return modelFeatures
 
 
-# In[27]:
+# In[28]:
 
 
 mf = calcDist(mf)
 
 
-# In[28]:
+# In[29]:
 
 
 # Verifying function
 mf.plot.scatter(x='DistanceKM',y='DeliveryTime')
 
 
-# In[29]:
+# In[30]:
 
 
 # Distance Histogram
@@ -307,7 +307,7 @@ mf.DistanceKM.plot.hist(bins=50)
 
 # ### Preparing categorical variables
 
-# In[30]:
+# In[31]:
 
 
 # Preparing categorical variables for one hot encoding
@@ -318,14 +318,14 @@ def prepareEncoding(modelFeatures):
     return modelFeatures
 
 
-# In[31]:
+# In[32]:
 
 
 # Applying changes
 mf = prepareEncoding(mf)
 
 
-# In[32]:
+# In[33]:
 
 
 # Verifying changes
@@ -334,7 +334,7 @@ mf.head()
 
 # ### Getting month from data
 
-# In[33]:
+# In[34]:
 
 
 # Get month from date due to seasonality
@@ -344,14 +344,14 @@ def getMonth(modelFeatures):
     return modelFeatures
 
 
-# In[34]:
+# In[35]:
 
 
 # Applying changes
 mf = getMonth(mf)
 
 
-# In[35]:
+# In[36]:
 
 
 # Verifying changes
@@ -360,7 +360,7 @@ mf.head()
 
 # ### Encoding categorical variables
 
-# In[36]:
+# In[37]:
 
 
 def encodeCategories(modelFeatures):
@@ -377,14 +377,14 @@ def encodeCategories(modelFeatures):
     return modelFeatures
 
 
-# In[37]:
+# In[38]:
 
 
 # Applying changes
 mf = encodeCategories(mf)
 
 
-# In[38]:
+# In[39]:
 
 
 # Verifying changes
@@ -393,7 +393,7 @@ mf.head()
 
 # ### Dropping already used features
 
-# In[39]:
+# In[40]:
 
 
 # Dropping features we are not going to use
@@ -404,14 +404,14 @@ def dropUsed(modelFeatures):
     return modelFeatures
 
 
-# In[40]:
+# In[41]:
 
 
 # Applying changes
 mf = dropUsed(mf)
 
 
-# In[41]:
+# In[42]:
 
 
 # Verifying changes
@@ -429,14 +429,14 @@ mf.head()
 # - Ada Boost
 # - Gradient Boosting
 
-# In[42]:
+# In[43]:
 
 
 # Creating the dataframe
 modelDf = df.copy()
 
 
-# In[43]:
+# In[44]:
 
 
 # Applying feature engineering transformations
@@ -449,14 +449,14 @@ modelDf = encodeCategories(modelDf)
 modelDf = dropUsed(modelDf)
 
 
-# In[44]:
+# In[45]:
 
 
 # Verifying changes
 modelDf.head()
 
 
-# In[45]:
+# In[46]:
 
 
 # Splitting X and Y
@@ -470,29 +470,33 @@ X[col_names] = scaler.transform(X[col_names])
 X.head()
 
 
-# In[46]:
+# In[47]:
 
 
 # Splitting train and test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=42)
 
 
-# In[47]:
+# In[48]:
 
 
 # Definig hyperparameter space
 params ={
     'LinearRegression':{'fit_intercept':[True,False]},
+    
     'DecisionTree':{'criterion':['mse','friedman_mse','mae'], 
                     'splitter':['best','random']},
+    
     'RandomForest':{'n_estimators':[10,50,100], 
                     'criterion':['mse','mae']},
+    
     'AdaBoost':{'base_estimator':[DecisionTreeRegressor(max_depth=3),
                     DecisionTreeRegressor(max_depth=5),
                     DecisionTreeRegressor(max_depth=10)],
                 'n_estimators':[50,75,100],
                 'learning_rate':[0.1,1,10],
                 'loss':['linear','square','exponential']},
+    
     'GradientBoosting':{'loss':['ls','lad','huber'],
                         'learning_rate':[0.01,0.1,1],
                         'n_estimators':[50,100,200],
@@ -500,7 +504,7 @@ params ={
 }
 
 
-# In[48]:
+# In[49]:
 
 
 # Defining models
@@ -509,11 +513,11 @@ models = {
     'DecisionTree':DecisionTreeRegressor(),
     'RandomForest':RandomForestRegressor(),
     'AdaBoost':AdaBoostRegressor(),
-    'GradientBoosting':GradientBoostingRegressor()GradientBoostingRegressor
+    'GradientBoosting':GradientBoostingRegressor()
 }
 
 
-# In[49]:
+# In[50]:
 
 
 # Defining GridSearch selection helper 
@@ -573,7 +577,7 @@ class EstimatorSelectionHelper:
         return df[columns]
 
 
-# In[50]:
+# In[51]:
 
 
 #Executing GridSearch
@@ -581,28 +585,28 @@ helper = EstimatorSelectionHelper(models, params)
 helper.fit(X_train, y_train, scoring='neg_mean_squared_error', n_jobs=3)
 
 
-# In[51]:
+# In[52]:
 
 
 #Verifying results
 helper.score_summary(sort_by='max_score')
 
 
-# In[52]:
+# In[53]:
 
 
 # Analyzing the best result
 res = helper.score_summary(sort_by='max_score')
 
 
-# In[53]:
+# In[54]:
 
 
 # Analyzing the best result: parameters
 res.iloc[0]['base_estimator']
 
 
-# In[54]:
+# In[55]:
 
 
 # Analyzing the best result: parameters
@@ -613,7 +617,7 @@ res.iloc[0]
 # 
 # We are now going to train the best model, based on our previous search.
 
-# In[60]:
+# In[56]:
 
 
 # Defining model
@@ -625,21 +629,21 @@ bestModel = GradientBoostingRegressor(
 )
 
 
-# In[61]:
+# In[57]:
 
 
 # Training model
 bestModel.fit(X_train,y_train)
 
 
-# In[62]:
+# In[58]:
 
 
 # Predicting
 y_pred = bestModel.predict(X_test)
 
 
-# In[63]:
+# In[59]:
 
 
 # Verifying results
@@ -648,7 +652,7 @@ resultDf['DeliveryTime'] = y_test
 resultDf['PredictedTime'] = y_pred
 
 
-# In[64]:
+# In[70]:
 
 
 # Verifyng df
@@ -659,7 +663,7 @@ resultDf.head(15)
 # 
 # Now we are going to save the model, in order to use it in a real pipeline.
 
-# In[69]:
+# In[61]:
 
 
 dump(bestModel, 'eddModel.joblib') 
@@ -671,14 +675,14 @@ dump(bestModel, 'eddModel.joblib')
 # 
 # Then, the results are going to be exported into a CSV file.
 
-# In[123]:
+# In[62]:
 
 
 # Loading previously defined model
 prodModel = load('eddModel.joblib')
 
 
-# In[124]:
+# In[63]:
 
 
 # Loading test set
@@ -687,7 +691,7 @@ testDf = pd.DataFrame(testFile)
 outputDf = testDf.copy()
 
 
-# In[125]:
+# In[64]:
 
 
 # Applying feature engineering transformations
@@ -703,21 +707,21 @@ scaler = StandardScaler().fit(testDf[col_names])
 testDf[col_names] = scaler.transform(testDf[col_names])
 
 
-# In[126]:
+# In[65]:
 
 
 # Predicting
 testPred = prodModel.predict(testDf)
 
 
-# In[127]:
+# In[66]:
 
 
 # Preparing output
 outputDf['DeliveryTime'] = testPred
 
 
-# In[128]:
+# In[67]:
 
 
 # Exporting result
@@ -728,7 +732,7 @@ outputDf.to_csv(path_or_buf='edd_results.csv', columns=['OrderLineID','DeliveryT
 # 
 # List of used packages and versions.
 
-# In[13]:
+# In[68]:
 
 
 import pkg_resources
