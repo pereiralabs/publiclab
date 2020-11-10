@@ -22,6 +22,7 @@
 			-Medical Appointment: Medical Appointment's patient showing up prediction
 			-train_val_test_split: train_val_test_split function splits the dataset in three parts (training, validation and testing)
 			-Wine Classification: Wine quality classification
+			-Image Analysis: Exercises using Normalization, Convolution and ReLu with numpy
 
 	R:
 		Data Science:
